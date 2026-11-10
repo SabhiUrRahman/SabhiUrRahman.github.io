@@ -27,7 +27,7 @@ jobs:
       # audit what ships to the browser (sharp is a dev-only image tool run locally on our own files)
       - run: npm audit --omit=dev --audit-level=high
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
