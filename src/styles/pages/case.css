@@ -1,0 +1,137 @@
+/* Case study template (cs-): case hero with meta row and screenshot, results, story with
+   "on this page", security check table, next case.
+   Desktop follows the 1440 px design through --u; phones (< 900 px) follow the 390 px design. */
+
+.cs-ph { color: var(--ink-500); } /* placeholder values: replace with the real ones */
+
+/* ---------- 01 case hero ---------- */
+.cs-hero { padding: calc(80 * var(--u)) 0; }
+.cs-hero__top { display: flex; justify-content: space-between; gap: 24px; margin-top: calc(23 * var(--u)); }
+.cs-crumb { color: var(--ink-700); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: rgb(11 11 12 / 0.3); text-underline-offset: 3px; transition: color 0.25s, text-decoration-color 0.25s; }
+.cs-crumb:hover { color: var(--ink); text-decoration-color: currentColor; }
+.cs-hero__title { margin-top: calc(31 * var(--u)); max-width: calc(1200 * var(--u)); font-weight: 500; font-size: calc(112 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.cs-hero__title em { font-size: 1.152em; letter-spacing: -0.01em; }
+.cs-hero__lead { margin-top: calc(44 * var(--u)); max-width: max(420px, calc(700 * var(--u))); font-size: max(16px, calc(20 * var(--u))); line-height: 1.5; color: var(--ink-700); }
+.cs-meta { margin-top: calc(60 * var(--u)); display: grid; grid-template-columns: repeat(5, calc(242 * var(--u))); column-gap: calc(20 * var(--u)); }
+.cs-meta > div { display: grid; align-content: start; gap: calc(9 * var(--u)); padding-top: calc(15 * var(--u)); border-top: 1px solid rgb(11 11 12 / 0.2); }
+.cs-meta dd { font-size: max(15px, calc(17 * var(--u))); line-height: 1.3; }
+.cs-meta a { color: var(--emerald); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* the "screenshot": a soft page sketch until the real one is in */
+.cs-shot {
+  position: relative; margin-top: calc(58 * var(--u)); aspect-ratio: 1312 / 760; border-radius: calc(24 * var(--u)); overflow: hidden; isolation: isolate;
+  background: linear-gradient(160deg, rgb(245 242 236 / 0.6), rgb(245 242 236 / 0)), var(--ice);
+}
+.cs-shot__mock {
+  position: absolute; left: 14.02%; top: 18.03%; width: 72.03%; height: 71.97%;
+  border-radius: calc(14 * var(--u)); background: rgb(255 255 255 / 0.9); overflow: hidden;
+  box-shadow: 0 calc(30 * var(--u)) calc(60 * var(--u)) calc(-20 * var(--u)) rgb(11 11 12 / 0.28);
+}
+.cs-shot__bar { display: flex; align-items: center; gap: 6px; height: max(24px, calc(33 * var(--u))); padding: 0 14px; background: rgb(11 11 12 / 0.04); }
+.cs-shot__bar i { flex: none; width: 7px; height: 7px; border-radius: 50%; background: rgb(11 11 12 / 0.3); }
+.cs-shot__bar span { min-width: 0; margin-left: 8px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; color: rgb(11 11 12 / 0.5); }
+.cs-shot__mock b { position: absolute; border-radius: calc(10 * var(--u)); background: rgb(11 11 12 / 0.9); }
+.cs-shot__mock b:nth-of-type(1) { left: 6.03%; top: 19.93%; width: 42.01%; height: 6.95%; }
+.cs-shot__mock b:nth-of-type(2) { left: 6.03%; top: 29.98%; width: 31.96%; height: 6.95%; }
+.cs-shot__mock b:nth-of-type(3) { left: 6.03%; top: 42.96%; width: 46.03%; height: 2.56%; border-radius: calc(7 * var(--u)); background: rgb(11 11 12 / 0.3); }
+.cs-shot__mock b:nth-of-type(4) { left: 6.03%; top: 48.08%; width: 37.99%; height: 2.56%; border-radius: calc(7 * var(--u)); background: rgb(11 11 12 / 0.3); }
+.cs-shot__mock b:nth-of-type(5) { left: 6.03%; top: 57.95%; width: 15.98%; height: 8.04%; background: var(--ink); }
+.cs-shot__mock b:nth-of-type(6) { left: 57.99%; top: 19.93%; width: 35.98%; height: 46.07%; background: rgb(11 11 12 / 0.08); }
+.cs-shot__mock b:nth-of-type(n+7) { top: 76.05%; width: 26.98%; height: 16.09%; background: rgb(11 11 12 / 0.06); }
+.cs-shot__mock b:nth-of-type(7) { left: 6.03%; }
+.cs-shot__mock b:nth-of-type(8) { left: 35.98%; }
+.cs-shot__mock b:nth-of-type(9) { left: 65.93%; width: 27.94%; }
+.cs-shot__tag {
+  position: absolute; left: calc(24 * var(--u)); bottom: calc(24 * var(--u)); z-index: 1;
+  padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--ivory);
+  font-family: var(--mono); font-size: 10px; line-height: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+/* ---------- 02 results ---------- */
+.cs-results { padding: calc(80 * var(--u)) 0 calc(145 * var(--u)); }
+.cs-results__title { font-weight: 400; }
+.cs-numbers { margin-top: calc(35 * var(--u)); display: grid; grid-template-columns: repeat(4, calc(300 * var(--u))); column-gap: calc(30 * var(--u)); }
+.cs-numbers > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: calc(32 * var(--u)); padding-top: calc(29 * var(--u)); border-top: 1px solid rgb(11 11 12 / 0.2); }
+.cs-numbers dd { margin-left: -0.03em; font-family: var(--serif); font-size: calc(120 * var(--u)); line-height: 0.9; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+
+/* ---------- 03 story ---------- */
+.cs-story { padding: calc(80 * var(--u)) 0 calc(130 * var(--u)); }
+.cs-story__grid { display: grid; grid-template-columns: calc(396 * var(--u)) minmax(0, 1fr); align-items: start; }
+.cs-toc { position: sticky; top: max(100px, calc(120 * var(--u))); }
+.cs-toc ol { margin-top: calc(17 * var(--u)); display: grid; gap: calc(20 * var(--u)); justify-items: start; }
+.cs-toc a { position: relative; display: inline-block; font-size: max(15px, calc(16 * var(--u))); line-height: 1.25; color: var(--ink-500); transition: color 0.3s, transform 0.45s var(--ease); }
+.cs-toc a::before { content: ""; position: absolute; left: calc(-32 * var(--u)); top: calc(50% - 1px); width: calc(24 * var(--u)); height: 2px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease); }
+.cs-toc a:hover, .cs-toc a:focus-visible { color: var(--ink); transform: translateX(calc(32 * var(--u))); }
+.cs-toc a:hover::before, .cs-toc a:focus-visible::before { transform: scaleX(1); }
+.cs-story__body { max-width: calc(780 * var(--u)); }
+.cs-block { scroll-margin-top: 100px; }
+.cs-block + .cs-block { margin-top: calc(90 * var(--u)); }
+.cs-block--check + .cs-block { margin-top: calc(63 * var(--u)); }
+.cs-block h2 { font-weight: 500; font-size: max(26px, calc(44 * var(--u))); line-height: 1.27; letter-spacing: -0.02em; }
+.cs-block__text { margin-top: calc(14 * var(--u)); max-width: calc(760 * var(--u)); font-size: max(16px, calc(19 * var(--u))); line-height: 1.6; color: var(--ink-700); }
+
+/* security check table */
+.cs-check { margin-top: calc(24 * var(--u)); width: 100%; border-collapse: collapse; table-layout: fixed; }
+.cs-check th, .cs-check td { padding: calc(16 * var(--u)) 0 calc(17 * var(--u)); border-bottom: 1px solid var(--line-2); text-align: left; vertical-align: baseline; font-weight: 400; }
+.cs-check thead th { padding: 0 0 calc(15 * var(--u)); }
+.cs-check thead th:nth-child(1) { width: 66.67%; }
+.cs-check thead th:nth-child(2) { width: 17.95%; }
+.cs-check tbody th { font-size: max(15px, calc(17 * var(--u))); line-height: 1.3; }
+.cs-check td { font-family: var(--mono); font-size: max(14px, calc(17 * var(--u))); line-height: 1.3; color: var(--ink-500); }
+.cs-check__note { margin-top: calc(20 * var(--u)); font-size: 13px; line-height: 1.3; color: var(--ink-500); }
+
+/* ---------- next case ---------- */
+.cs-next { padding-bottom: calc(117 * var(--u)); }
+.cs-next .hair { background: var(--line-2); }
+.cs-next__link { display: block; width: fit-content; padding-top: calc(89 * var(--u)); }
+.cs-next__title { display: block; max-width: calc(1100 * var(--u)); margin-top: calc(25 * var(--u)); font-weight: 500; font-size: calc(120 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.cs-next__title svg { display: inline-block; width: 0.66em; height: 0.66em; margin-left: 0.04em; vertical-align: -0.04em; transition: transform 0.5s var(--ease); }
+.cs-next__title svg path { stroke-width: 1.5; }
+.cs-next__link .label { transition: color 0.3s; }
+.cs-next__link:hover .label { color: var(--ink); }
+.cs-next__link:hover svg { transform: translateX(0.12em); }
+
+/* ---------- phones (390 px design) ---------- */
+@media (max-width: 899px) {
+  .cs-hero { padding: 93px 0 40px; }
+  .cs-hero .hair { display: none; }
+  .cs-hero__top { margin-top: 0; }
+  .cs-hero__title { margin-top: 18px; max-width: none; font-size: 44px; line-height: 1; letter-spacing: -0.03em; }
+  .cs-hero__title em { font-size: 51px; }
+  .cs-hero__lead { margin-top: 18px; max-width: none; font-size: 16px; line-height: 1.55; }
+  .cs-meta { margin-top: 18px; display: block; }
+  .cs-meta > div { grid-template-columns: 70px 1fr; column-gap: 14px; align-items: baseline; padding: 14px 0; border-top-color: var(--line-2); }
+  .cs-meta > div:last-child { border-bottom: 1px solid var(--line-2); }
+  .cs-meta dd { font-size: 16px; line-height: 1.2; letter-spacing: -0.01em; }
+  .cs-shot { margin-top: 18px; aspect-ratio: auto; height: 240px; border-radius: 18px; }
+  .cs-shot__mock { border-radius: 14px; box-shadow: 0 16px 30px -12px rgb(11 11 12 / 0.3); }
+  .cs-shot__bar { height: 33px; }
+  .cs-shot__mock b { border-radius: 6px; }
+  .cs-shot__mock b:nth-of-type(3), .cs-shot__mock b:nth-of-type(4) { border-radius: 2px; }
+  .cs-shot__tag { left: 12px; bottom: 12px; padding: 6px 12px; font-size: 9px; line-height: 12px; }
+
+  .cs-results { padding: 56px 0; }
+  .cs-numbers { margin-top: 16px; grid-template-columns: 1fr 1fr; }
+  .cs-numbers > div { gap: 6px; padding: 16px 0; border-top-color: var(--line); }
+  .cs-numbers dd { font-size: 64px; }
+
+  .cs-story { padding: 56px 0; }
+  .cs-story__grid { display: block; }
+  .cs-toc { display: none; }
+  .cs-story__body { max-width: none; }
+  .cs-block + .cs-block, .cs-block--check + .cs-block { margin-top: 38px; }
+  .cs-block h2 { font-size: 28px; line-height: 1.29; letter-spacing: -0.015em; }
+  .cs-block__text { margin-top: 14px; max-width: none; font-size: 16px; line-height: 1.55; }
+  .cs-check { margin-top: 14px; }
+  .cs-check th, .cs-check td { padding: 10px 0; }
+  .cs-check thead th { padding: 0 0 10px; }
+  .cs-check thead th:nth-child(1) { width: 62%; }
+  .cs-check thead th:nth-child(2) { width: 19%; }
+  .cs-check tbody th { font-size: 15px; }
+  .cs-check td { font-size: 14px; }
+  .cs-check__note { margin-top: 14px; font-size: 12px; line-height: 1.55; }
+
+  .cs-next { padding: 56px 0; }
+  .cs-next__link { padding-top: 8px; }
+  .cs-next__title { margin-top: 8px; max-width: none; font-size: 44px; line-height: 1; letter-spacing: -0.03em; }
+}

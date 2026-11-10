@@ -1,0 +1,185 @@
+/* Services page (/services/) · class prefix sv-
+   Desktop follows the 1440 px design through --u (1 design px); phones (< 900 px) follow the 390 px design in px.
+   Reused from main.css: .slot, .hero__notes / .note (fig. notes with leader lines), .hero__scroll, .rows,
+   .notes__panel (dark panel with glow, grid and grain), .faq__grid / .faq__title / .faq__list / .qa (FAQ). */
+
+/* ---------- 01 hero ---------- */
+.sv-glow--h1 { left: calc(50% - 960 * var(--u)); top: calc(520 * var(--u)); width: calc(900 * var(--u)); height: calc(600 * var(--u)); }
+.sv-glow--h2 { --c: rgb(214 235 245 / 0.7); left: calc(50% + 140 * var(--u)); top: calc(160 * var(--u)); width: calc(420 * var(--u)); height: calc(620 * var(--u)); }
+.sv-hero__wrap { display: flex; flex-direction: column; min-height: calc(940 * var(--u)); padding-top: calc(104 * var(--u)); padding-bottom: calc(10 * var(--u)); }
+.sv-hero__hair { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(80 * var(--u)); }
+.sv-hero__labels { display: flex; justify-content: space-between; gap: 24px; }
+.sv-hero__title { margin-top: calc(31 * var(--u)); max-width: calc(820 * var(--u)); font-weight: 500; font-size: calc(104 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.sv-hero__title em { font-size: 1.154em; letter-spacing: -0.01em; }
+.sv-slot--hero { left: calc(842 * var(--u)); top: calc(170 * var(--u)); width: calc(316 * var(--u)); height: calc(720 * var(--u)); }
+.sv-hero__lead { margin-top: calc(163 * var(--u)); max-width: max(320px, calc(500 * var(--u))); font-size: max(15px, calc(18 * var(--u))); line-height: 1.55; color: var(--ink-700); }
+.sv-hero__actions { margin-top: calc(46 * var(--u)); margin-bottom: calc(40 * var(--u)); }
+.sv-hero__notes { position: absolute; left: calc(1150 * var(--u)); top: calc(286 * var(--u)); width: calc(260 * var(--u)); height: calc(450 * var(--u)); z-index: 3; }
+.sv-hero__notes .note:nth-child(2) { top: calc(200 * var(--u)); }
+.sv-hero__notes .note:nth-child(3) { top: calc(400 * var(--u)); }
+.sv-hero__notes .note p { font-size: max(20px, calc(24 * var(--u))); }
+.sv-hero__foot { position: relative; margin-top: auto; padding-top: calc(14 * var(--u)); }
+.sv-hero__foot .hair { position: absolute; inset: 0 0 auto; }
+
+/* ---------- shared section heading ---------- */
+.sv-h2 { margin-top: calc(21 * var(--u)); font-weight: 500; font-size: calc(88 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.sv-h2 em { font-size: 1.148em; letter-spacing: -0.01em; }
+
+/* ---------- 02 what I do: four service rows ---------- */
+.sv-index { padding: calc(100 * var(--u)) 0 calc(40 * var(--u)); }
+.sv-list { margin-top: calc(89 * var(--u)); }
+.sv-svc {
+  display: grid; grid-template-columns: calc(86 * var(--u)) calc(670 * var(--u)) calc(360 * var(--u)) 1fr; align-items: start;
+  padding: calc(26 * var(--u)) 0 calc(61 * var(--u));
+}
+.sv-svc__num { margin-top: calc(20 * var(--u)); }
+.sv-svc__title { padding-right: 24px; font-weight: 400; font-size: calc(52 * var(--u)); line-height: 1.27; letter-spacing: -0.025em; transition: color 0.3s; }
+.sv-svc__title em { font-size: 1.154em; letter-spacing: -0.025em; }
+.sv-svc__body { display: flex; flex-direction: column; gap: 8px; min-height: calc(89 * var(--u)); margin-top: calc(4 * var(--u)); }
+.sv-svc__text { font-size: max(14px, calc(15 * var(--u))); line-height: 1.5; color: var(--ink-700); }
+.sv-svc__tags { margin-top: auto; color: var(--ink); }
+.sv-svc__go { justify-self: end; width: calc(32 * var(--u)); min-width: 20px; margin-top: calc(14 * var(--u)); transition: transform 0.45s var(--ease); }
+.sv-svc__go svg { width: 100%; height: auto; }
+.sv-svc:focus-visible .sv-svc__go { transform: translateX(6px); }
+@media (hover: hover) and (pointer: fine) {
+  .sv-list:hover .sv-svc:not(:hover) .sv-svc__title { color: rgb(11 11 12 / 0.35); }
+  .sv-svc:hover .sv-svc__go { transform: translateX(6px); }
+}
+
+/* ---------- 03 no-code security check (dark panel) ---------- */
+.sv-check { padding: calc(70 * var(--u)) calc(24 * var(--u)); }
+.sv-check__panel { min-height: calc(960 * var(--u)); }
+.sv-check__panel .notes__glow--a { top: calc(80 * var(--u)); }
+.sv-check__body {
+  position: relative; display: grid; align-items: start;
+  grid-template-columns: calc(760 * var(--u)) calc(440 * var(--u)); column-gap: calc(48 * var(--u));
+  grid-template-areas: "head ." "what get";
+  padding: calc(90 * var(--u)) calc(72 * var(--u)) calc(72 * var(--u));
+}
+.sv-check .label { color: rgb(245 242 236 / 0.6); }
+.sv-check__head { grid-area: head; }
+.sv-check__title { margin-top: calc(25 * var(--u)); font-weight: 500; font-size: calc(72 * var(--u)); line-height: 0.98; letter-spacing: -0.035em; }
+.sv-check__title em { font-size: 1.167em; letter-spacing: -0.01em; }
+.sv-check__what { grid-area: what; margin-top: calc(94 * var(--u)); }
+.sv-check .sv-check__sub { color: rgb(245 242 236 / 0.5); }
+.sv-check__list { margin-top: calc(21 * var(--u)); display: grid; grid-template-columns: repeat(2, calc(360 * var(--u))); column-gap: calc(40 * var(--u)); }
+.sv-check__list li {
+  display: grid; grid-template-columns: calc(26 * var(--u)) 1fr; align-items: start;
+  min-height: calc(64 * var(--u)); padding: calc(18 * var(--u)) 0 calc(6 * var(--u));
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  font-size: max(15px, calc(16 * var(--u))); line-height: 1.25; color: rgb(245 242 236 / 0.9);
+}
+.sv-tick { width: max(11px, calc(12 * var(--u))); height: auto; margin-top: 4px; color: var(--signal); }
+.sv-tick path { stroke-width: 1.8; }
+.sv-get {
+  grid-area: get; margin-top: calc(94 * var(--u)); display: grid; gap: calc(14 * var(--u));
+  padding: calc(32 * var(--u)); border-radius: calc(24 * var(--u));
+  background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.12);
+}
+.sv-check .sv-get .label { color: rgb(245 242 236 / 0.5); }
+.sv-get__list { display: grid; gap: calc(14 * var(--u)); }
+.sv-get__list li { display: grid; grid-template-columns: 13px 1fr; column-gap: 12px; align-items: start; font-size: max(15px, calc(16 * var(--u))); line-height: 1.25; color: var(--ivory); }
+.sv-get__list svg { width: 13px; height: 13px; margin-top: 3px; color: var(--signal); }
+.sv-get__list svg path { stroke-width: 1.6; }
+.sv-get__note { max-width: 376px; font-size: max(13px, calc(13 * var(--u))); line-height: 1.5; color: rgb(245 242 236 / 0.55); }
+
+/* ---------- 04 process ---------- */
+.sv-process { padding: calc(100 * var(--u)) 0 calc(185 * var(--u)); }
+.sv-steps { margin-top: calc(99 * var(--u)); display: grid; grid-template-columns: repeat(4, calc(300 * var(--u))); column-gap: calc(30 * var(--u)); }
+.sv-step { display: flex; flex-direction: column; min-height: calc(345 * var(--u)); border-top: 1px solid rgb(11 11 12 / 0.2); }
+.sv-step__num { margin: calc(29 * var(--u)) 0 0 calc(-4 * var(--u)); font-family: var(--serif); font-size: calc(96 * var(--u)); line-height: 0.9; color: rgb(11 11 12 / 0.18); font-variant-numeric: tabular-nums; }
+.sv-step:last-child .sv-step__num { color: var(--ink); }
+.sv-step__title { margin-top: calc(44 * var(--u)); font-weight: 500; font-size: max(20px, calc(26 * var(--u))); line-height: 1.27; letter-spacing: -0.01em; }
+.sv-step__text { margin-top: calc(9 * var(--u)); padding-right: calc(20 * var(--u)); font-size: max(14px, calc(15 * var(--u))); line-height: 1.5; color: var(--ink-700); }
+.sv-step__when { margin-top: auto; padding-top: calc(24 * var(--u)); color: var(--ink); }
+
+/* ---------- 05 faq (layout and rows from main.css) ---------- */
+.sv-faq { padding: calc(100 * var(--u)) 0 calc(170 * var(--u)); }
+.sv-faq .faq__title { font-size: calc(110 * var(--u)); }
+.sv-faq .qa__q { font-weight: 400; }
+.sv-faq .qa[open] .qa__q { font-weight: 500; }
+
+/* ---------- 06 next page ---------- */
+.sv-next { padding: 0 0 calc(117 * var(--u)); }
+.sv-next .hair { background: var(--line-2); }
+.sv-next__link { display: inline-grid; gap: calc(25 * var(--u)); margin-top: calc(89 * var(--u)); }
+.sv-next__t { display: inline-flex; align-items: center; gap: 0.22em; font-weight: 500; font-size: calc(120 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.sv-next__t svg { width: 0.62em; height: 0.62em; transition: transform 0.5s var(--ease); }
+.sv-next__t svg path { stroke-width: 1.3; }
+.sv-next__link:hover svg, .sv-next__link:focus-visible svg { transform: translateX(0.12em); }
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+  .sv-next__link:hover .sv-next__word { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
+}
+
+/* ---------- phones (390 px design) ---------- */
+@media (max-width: 899px) {
+  /* hero: label, title, avatar, lead, actions, notes as rows */
+  .sv-glow--h1, .sv-glow--h2 { display: none; }
+  .sv-hero__wrap { min-height: 0; gap: 18px; padding-top: 93px; padding-bottom: 48px; }
+  .sv-hero__title { margin-top: 0; max-width: none; font-size: 46px; line-height: 1; letter-spacing: -0.03em; }
+  .sv-hero__title em { font-size: 53px; }
+  .sv-slot--hero { position: relative; left: auto; top: auto; width: 176px; height: 400px; margin: 6px auto 18px; }
+  .sv-slot--hero img { position: relative; z-index: 1; }
+  .sv-slot--hero::after { left: -2px; right: -2px; bottom: -12px; height: 28px; }
+  .sv-glow--slot { --c: rgb(214 235 245 / 0.8); left: -42px; top: 14px; width: 260px; height: 320px; }
+  .sv-hero__lead { margin-top: 0; max-width: none; font-size: 16px; }
+  .sv-hero__actions { margin: 0; row-gap: 12px; }
+  .sv-hero__notes { position: relative; left: auto; top: auto; width: auto; height: auto; margin-top: 0; z-index: auto; border-top: 1px solid var(--line-2); }
+  .sv-hero__notes .note { padding: 32px 0; border-bottom-color: var(--line-2); }
+  .sv-hero__notes .note p { font-size: 22px; }
+
+  .sv-h2 { margin-top: 16px; font-size: 40px; line-height: 1; letter-spacing: -0.03em; }
+  .sv-h2 em { font-size: 46px; }
+
+  /* what I do */
+  .sv-index { padding: 56px 0; }
+  .sv-list { margin-top: 16px; }
+  .sv-list > li { padding: 16px 0; }
+  .sv-svc { grid-template-columns: 44px 1fr auto; column-gap: 14px; padding: 14px 0; }
+  .sv-svc__num { grid-row: 1 / 3; margin-top: 5px; }
+  .sv-svc__title { grid-column: 2; grid-row: 1; padding-right: 0; font-weight: 500; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; }
+  .sv-svc__title em { font-family: var(--sans); font-style: normal; font-weight: 500; font-size: 1em; letter-spacing: -0.01em; }
+  .sv-svc__body { grid-column: 2; grid-row: 2; min-height: 0; margin-top: 6px; }
+  .sv-svc__text { font-size: 13px; line-height: 1.45; }
+  .sv-svc__go { grid-column: 3; grid-row: 1 / 3; width: 15px; min-width: 0; margin-top: 5px; }
+
+  /* security check panel */
+  .sv-check { padding: 24px 12px; }
+  .sv-check__panel { min-height: 0; }
+  .sv-check__panel .notes__glow--a { top: 32px; }
+  .sv-check__panel .notes__grid { display: none; }
+  .sv-check__body { display: flex; flex-direction: column; gap: 14px; padding: 0; }
+  .sv-check .label { color: rgb(245 242 236 / 0.55); }
+  .sv-check .sv-check__sub { color: rgb(245 242 236 / 0.5); }
+  .sv-check__title { margin-top: 14px; font-size: 32px; line-height: 1; letter-spacing: -0.03em; }
+  .sv-check__title em { font-size: 37px; }
+  .sv-check__what { margin-top: 0; }
+  .sv-check__list { margin-top: 14px; grid-template-columns: 1fr; }
+  .sv-check__list li { grid-template-columns: 20px 1fr; min-height: 0; padding: 8px 0; border-top-color: rgb(255 255 255 / 0.1); font-size: 15px; line-height: 19px; }
+  .sv-check__list li + li { margin-top: 14px; }
+  .sv-tick { width: 11px; margin-top: 4px; }
+  .sv-get { margin-top: 0; gap: 14px; padding: 0; border: 0; border-radius: 0; background: none; }
+  .sv-get__note { max-width: none; font-size: 14px; line-height: 1.55; color: rgb(245 242 236 / 0.65); }
+
+  /* process */
+  .sv-process { padding: 56px 0; }
+  .sv-process .sv-h2 { font-size: 36px; }
+  .sv-process .sv-h2 em { font-size: 41px; }
+  .sv-steps { margin-top: 16px; grid-template-columns: 1fr; }
+  .sv-step { min-height: 0; padding: 28px 0; border-top-color: var(--line-2); }
+  .sv-step:last-child { border-bottom: 1px solid var(--line-2); }
+  .sv-step__num { margin: 0; font-size: 56px; color: rgb(11 11 12 / 0.2); }
+  .sv-step__title { margin-top: 6px; font-size: 20px; line-height: 1.3; letter-spacing: 0; }
+  .sv-step__text { margin-top: 6px; padding-right: 0; font-size: 14px; }
+  .sv-step__when { margin-top: 6px; padding-top: 0; }
+
+  /* faq */
+  .sv-faq { padding: 56px 0; }
+  .sv-faq .faq__title { font-size: 52px; }
+  .sv-faq .qa summary { padding: 30px 0; }
+
+  /* next page */
+  .sv-next { padding: 56px 0; }
+  .sv-next__link { gap: 8px; margin-top: 8px; }
+  .sv-next__t { font-size: 56px; line-height: 1; letter-spacing: -0.03em; }
+}

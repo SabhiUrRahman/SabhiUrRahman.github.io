@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found · Syed Sabhi Ur Rahman</title>
+  <meta name="description" content="This page does not exist. Go back to the home page or read the security notes.">
+  <!-- @include head robots="noindex, follow" -->
+</head>
+<body data-page="404">
+  <!-- @include nav -->
+  <main id="main">
+    <section class="lost" id="top" data-section data-pose="fold" data-place="0.78 0.86 0.5">
+      <span class="glow glow--h2" aria-hidden="true"></span>
+      <div class="wrap">
+        <p class="label" data-load>Error 404 — page not found</p>
+        <h1 class="lost__title" data-load>This page is <em>not here.</em></h1>
+        <p class="lost__text" data-load>The link may be old, or the page may not be written yet. Most security notes are still drafts.</p>
+        <div class="actions" data-load>
+          <!-- @include btn href="/" label="Back to home" -->
+          <!-- @include ulink href="/security/" label="Security notes" icon="right" -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- @include footer-plain pose="fold" -->
+  <style>
+    .lost { min-height: 100svh; display: grid; align-items: center; padding: calc(140 * var(--u)) 0 calc(80 * var(--u)); }
+    .lost .glow { left: 55%; top: 20%; width: calc(520 * var(--u)); height: calc(620 * var(--u)); --c: rgb(214 235 245 / 0.6); }
+    .lost__title { margin-top: calc(24 * var(--u)); max-width: calc(900 * var(--u)); font-weight: 500; font-size: max(44px, calc(120 * var(--u))); line-height: 0.95; letter-spacing: -0.05em; }
+    .lost__title em { font-size: 1.12em; letter-spacing: -0.01em; }
+    .lost__text { margin: calc(28 * var(--u)) 0 calc(36 * var(--u)); max-width: 460px; font-size: max(15px, calc(18 * var(--u))); line-height: 1.55; color: var(--ink-700); }
+    @media (max-width: 899px) { .lost { padding: 120px 0 60px; } .lost__title { font-size: 48px; } .lost__title em { font-size: 54px; } }
+  </style>
+</body>
+</html>

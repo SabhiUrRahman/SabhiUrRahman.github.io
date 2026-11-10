@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Security notes · Syed Sabhi Ur Rahman</title>
+  <meta name="description" content="Notes on securing Webflow and Framer websites: security headers, CSP, forms and third-party scripts, from a Webflow developer learning web application security.">
+  <link rel="canonical" href="https://sabhiurrahman.github.io/security/">
+  <meta property="og:title" content="Security notes · Syed Sabhi Ur Rahman">
+  <meta property="og:description" content="Notes on securing no-code websites: headers, CSP, forms and scripts.">
+  <meta property="og:url" content="https://sabhiurrahman.github.io/security/">
+  <!-- @include head -->
+  <link rel="stylesheet" href="/src/styles/pages/security.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://sabhiurrahman.github.io/security/#page",
+    "url": "https://sabhiurrahman.github.io/security/",
+    "name": "Security notes",
+    "description": "Notes on securing Webflow and Framer websites: security headers, CSP, forms and third-party scripts, from a Webflow developer learning web application security.",
+    "inLanguage": "en",
+    "isPartOf": { "@id": "https://sabhiurrahman.github.io/#website" },
+    "author": { "@id": "https://sabhiurrahman.github.io/#person" },
+    "about": [
+      { "@type": "Thing", "name": "Website security" },
+      { "@type": "Thing", "name": "Security headers" },
+      { "@type": "Thing", "name": "Webflow" },
+      { "@type": "Thing", "name": "Framer" }
+    ],
+    "hasPart": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://sabhiurrahman.github.io/security/webflow-security-headers/#post",
+        "headline": "How do I add security headers to a Webflow site?",
+        "url": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
+        "creativeWorkStatus": "Draft",
+        "author": { "@id": "https://sabhiurrahman.github.io/#person" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="security">
+  <!-- @include nav -->
+
+  <main id="main">
+    <!-- 01 Hero -->
+    <section class="sn-hero" id="top" data-pose="fold" data-section>
+      <span class="glow sn-glow--h1" aria-hidden="true"></span>
+      <span class="glow sn-glow--h2" aria-hidden="true"></span>
+      <div class="wrap sn-hero__wrap">
+        <span class="hair sn-hero__hair hide-m" aria-hidden="true"></span>
+        <div class="sn-hero__top">
+          <p class="label" data-load>(04) Security notes — practical, honest</p>
+          <p class="label hide-m" data-load>31.52°N 74.35°E · Lahore → worldwide</p>
+        </div>
+        <h1 class="sn-hero__title" data-load>Notes on securing <em>no-code websites.</em></h1>
+        <div class="slot sn-slot" data-slot>
+          <span class="glow sn-glow--slot show-m" aria-hidden="true"></span>
+          <img src="/img/avatar/fold-900.webp" srcset="/img/avatar/fold-900.webp 269w, /img/avatar/fold-1800.webp 539w" sizes="(max-width: 899px) 107px, 203px" width="539" height="1800" alt="" fetchpriority="high" decoding="async">
+        </div>
+        <p class="sn-hero__lead" data-load>Notes on Webflow and Framer security — headers, CSP, forms and scripts — plus what I am learning in web application security. Every note stays a draft until I have tested it.</p>
+        <ul class="hero__notes sn-notes hide-m" aria-label="House rules">
+          <li class="note" style="--len: 44" data-load><span class="label">fig. 01</span><p>Passive checks only</p></li>
+          <li class="note" style="--len: 44" data-load><span class="label">fig. 02</span><p>Last tested dates on every note</p></li>
+          <li class="note" style="--len: 54" data-load><span class="label">fig. 03</span><p>No invented numbers</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 02 Pillar guide (dark panel) -->
+    <section class="sn-pillar" aria-labelledby="sn-pillar-title">
+      <div class="sn-panel">
+        <span class="sn-panel__glow" aria-hidden="true"></span>
+        <span class="sn-panel__grid" aria-hidden="true"></span>
+        <span class="sn-panel__grain" aria-hidden="true"></span>
+        <div class="sn-panel__body">
+          <div class="sn-panel__copy">
+            <p class="label sn-signal" data-reveal>Pillar guide · Draft</p>
+            <h2 class="sn-panel__title" id="sn-pillar-title" data-split>The no-code website security <em>checklist.</em></h2>
+            <p class="sn-panel__text" data-reveal>Every check I run on a Webflow or Framer site before launch, in order, with what to fix first.</p>
+          </div>
+          <ol class="sn-check" data-reveal aria-label="Checklist topics">
+            <li><span class="sn-check__n">01</span><span class="sn-check__t">Headers</span></li>
+            <li><span class="sn-check__n">02</span><span class="sn-check__t">CSP</span></li>
+            <li><span class="sn-check__n">03</span><span class="sn-check__t">Forms</span></li>
+            <li><span class="sn-check__n">04</span><span class="sn-check__t">Custom code</span></li>
+            <li><span class="sn-check__n">05</span><span class="sn-check__t">Scripts</span></li>
+            <li><span class="sn-check__n">06</span><span class="sn-check__t">Access</span></li>
+            <li class="hide-m"><span class="sn-check__n">07</span><span class="sn-check__t">Gated content</span></li>
+            <li class="hide-m"><span class="sn-check__n">08</span><span class="sn-check__t">Backups</span></li>
+          </ol>
+          <p class="sn-panel__link" data-reveal><!-- @include ulink href="/security/webflow-security-headers/" label="Start with headers" icon="right" class="ulink--ivory" --></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 All notes (the topic filter works without JavaScript: radio buttons + :has) -->
+    <section class="sn-all" id="notes" aria-labelledby="sn-all-title">
+      <div class="wrap">
+        <div class="sn-all__head">
+          <h2 class="label sn-all__title" id="sn-all-title" data-reveal>(01) All notes</h2>
+          <fieldset class="sn-filter" data-reveal>
+            <legend class="sr-only">Show notes about</legend>
+            <input type="radio" name="sn-cat" id="sn-cat-all" value="all" checked><label for="sn-cat-all">All</label>
+            <input type="radio" name="sn-cat" id="sn-cat-webflow" value="webflow"><label for="sn-cat-webflow">Webflow</label>
+            <input type="radio" name="sn-cat" id="sn-cat-framer" value="framer"><label for="sn-cat-framer">Framer</label>
+            <input type="radio" name="sn-cat" id="sn-cat-wordpress" value="wordpress"><label for="sn-cat-wordpress">WordPress</label>
+            <input type="radio" name="sn-cat" id="sn-cat-research" value="research"><label for="sn-cat-research">Research</label>
+            <input type="radio" name="sn-cat" id="sn-cat-labs" value="labs"><label for="sn-cat-labs">Labs</label>
+          </fieldset>
+        </div>
+
+        <ol class="sn-list" data-reveal>
+          <li data-cat="webflow">
+            <a class="sn-row sn-row--link" href="/security/webflow-security-headers/">
+              <span class="label sn-row__tag">Webflow</span>
+              <h3 class="sn-row__title sn-row__title--serif">How do I add security headers to a Webflow site?</h3>
+              <span class="label sn-row__meta">Draft · 1 min</span>
+              <span class="sn-row__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
+            </a>
+          </li>
+          <li data-cat="webflow">
+            <div class="sn-row">
+              <span class="label sn-row__tag">Webflow</span>
+              <h3 class="sn-row__title">Can I use a Content Security Policy without Webflow Enterprise?</h3>
+              <span class="label sn-row__meta">Draft</span>
+            </div>
+          </li>
+          <li data-cat="webflow">
+            <div class="sn-row">
+              <span class="label sn-row__tag">Webflow</span>
+              <h3 class="sn-row__title">How do I stop spam on Webflow forms?</h3>
+              <span class="label sn-row__meta">Draft</span>
+            </div>
+          </li>
+          <li data-cat="webflow">
+            <div class="sn-row">
+              <span class="label sn-row__tag">Webflow</span>
+              <h3 class="sn-row__title">Are Webflow custom code embeds safe?</h3>
+              <span class="label sn-row__meta">Draft</span>
+            </div>
+          </li>
+          <li data-cat="framer">
+            <div class="sn-row">
+              <span class="label sn-row__tag">Framer</span>
+              <h3 class="sn-row__title">Can I set security headers on a Framer site?</h3>
+              <span class="label sn-row__meta">Draft</span>
+            </div>
+          </li>
+          <li data-cat="framer">
+            <div class="sn-row">
+              <span class="label sn-row__tag">Framer</span>
+              <h3 class="sn-row__title">How does Framer form spam protection work?</h3>
+              <span class="label sn-row__meta">Draft</span>
+            </div>
+          </li>
+          <li data-cat="research">
+            <div class="sn-row">
+              <span class="label sn-row__tag sn-row__tag--research">Research</span>
+              <h3 class="sn-row__title">What do no-code sites get wrong about security headers?</h3>
+              <span class="label sn-row__meta">Planned</span>
+            </div>
+          </li>
+          <li class="sn-empty" data-cat="wordpress"><p>No WordPress notes yet.</p></li>
+          <li class="sn-empty" data-cat="labs"><p>No lab write-ups yet.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 04 Research and tool -->
+    <section class="sn-more" aria-label="Research and tools">
+      <div class="wrap sn-more__grid">
+        <div class="sn-card sn-card--research" data-reveal>
+          <p class="label sn-card__tag">Research · planned</p>
+          <h2 class="sn-card__title">What no-code sites get wrong about security headers</h2>
+          <p class="sn-card__text"><span class="hide-m">A planned, passive look at the public headers of no-code sites, to be published as open data. </span>Numbers appear here only after the study is done.</p>
+          <p class="sn-card__q" aria-hidden="true">?</p>
+        </div>
+        <div class="sn-card sn-card--tool" data-reveal>
+          <p class="label sn-signal">Free tool · planned</p>
+          <h2 class="sn-card__title">Security header checker</h2>
+          <p class="sn-card__text">Planned: paste a URL, see which headers are missing and how to add them on Webflow or Framer. Until it is ready, the box below runs four passive checks on this page, in your browser.</p>
+          <div class="term sn-term" data-scan>
+            <div class="term__bar"><i></i><i></i><i></i><span class="label">guest@sabhi — scan</span></div>
+            <p class="term__cmd">$ scan <span data-scan-host>this page</span></p>
+            <ul class="term__out" data-scan-out>
+              <li>[ .. ] content-security-policy</li>
+              <li>[ .. ] https everywhere</li>
+              <li>[ .. ] third-party scripts</li>
+              <li>[ .. ] referrer policy</li>
+            </ul>
+            <p class="term__sum" data-scan-sum aria-live="polite">runs when you scroll here</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Next page -->
+    <section class="sn-next" aria-label="Next page">
+      <div class="wrap">
+        <span class="hair sn-next__hair" aria-hidden="true"></span>
+        <p class="label sn-next__label" data-reveal>Next page</p>
+        <p class="sn-next__go" data-reveal><a class="sn-next__link" href="/contact/">Contact <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include footer -->
+</body>
+</html>

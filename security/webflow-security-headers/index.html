@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>How do I add security headers to a Webflow site? · Syed Sabhi Ur Rahman</title>
+  <meta name="description" content="Draft note: which security headers matter, what you can set on each Webflow plan, and how to add them with a Cloudflare Worker, with a report-only CSP first.">
+  <link rel="canonical" href="https://sabhiurrahman.github.io/security/webflow-security-headers/">
+  <meta property="og:title" content="How do I add security headers to a Webflow site?">
+  <meta property="og:description" content="Which security headers matter, what each Webflow plan allows, and a Cloudflare Worker example. Draft.">
+  <meta property="og:url" content="https://sabhiurrahman.github.io/security/webflow-security-headers/">
+  <!-- @include head robots="noindex, follow" -->
+  <link rel="stylesheet" href="/src/styles/pages/note.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://sabhiurrahman.github.io/security/webflow-security-headers/#post",
+    "headline": "How do I add security headers to a Webflow site?",
+    "description": "Which security headers matter, what you can set on each Webflow plan, and how to add them with a Cloudflare Worker, with a report-only Content Security Policy first.",
+    "url": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
+    "mainEntityOfPage": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
+    "inLanguage": "en",
+    "creativeWorkStatus": "Draft",
+    "wordCount": 236,
+    "timeRequired": "PT1M",
+    "author": {
+      "@type": "Person",
+      "@id": "https://sabhiurrahman.github.io/#person",
+      "name": "Syed Sabhi Ur Rahman",
+      "url": "https://sabhiurrahman.github.io/"
+    },
+    "publisher": { "@id": "https://sabhiurrahman.github.io/#person" },
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "@id": "https://sabhiurrahman.github.io/security/#page",
+      "name": "Security notes",
+      "url": "https://sabhiurrahman.github.io/security/"
+    },
+    "about": [
+      { "@type": "Thing", "name": "Security headers" },
+      { "@type": "Thing", "name": "Webflow" },
+      { "@type": "Thing", "name": "Content Security Policy" }
+    ],
+    "keywords": ["Webflow", "security headers", "Content Security Policy", "Strict-Transport-Security", "Cloudflare Workers"]
+  }
+  </script>
+</head>
+<body data-page="security">
+  <!-- @include nav -->
+
+  <main id="main">
+    <article class="nt-post">
+      <!-- 01 Note hero: the question, then the short answer -->
+      <section class="nt-hero" id="top">
+        <div class="wrap nt-hero__wrap">
+          <span class="hair nt-hero__hair hide-m" aria-hidden="true"></span>
+          <div class="nt-hero__top">
+            <nav aria-label="Breadcrumb" data-load>
+              <p class="label">(04) <a class="nt-crumb" href="/security/">Security notes</a> / Webflow · <span class="nt-draft">Draft</span></p>
+            </nav>
+            <p class="label hide-m" data-load>31.52°N 74.35°E · Lahore → worldwide</p>
+          </div>
+          <h1 class="nt-hero__title" data-load>How do I add <em>security headers</em> to a Webflow site?</h1>
+          <div class="nt-hero__grid">
+            <div class="nt-answer" data-load>
+              <p class="label nt-answer__label">Short answer</p>
+              <p class="nt-answer__text">On a Webflow Enterprise plan you set custom security headers in the site settings. On other plans Webflow cannot add them for you, so you put a proxy such as a Cloudflare Worker in front of the site and add the headers there. Test a Content Security Policy in report-only mode first.</p>
+            </div>
+            <dl class="nt-meta" data-load>
+              <div class="nt-meta__row"><dt class="label">Last tested</dt><dd>Not tested yet</dd></div>
+              <div class="nt-meta__row"><dt class="label">Read</dt><dd>1 min</dd></div>
+              <div class="nt-meta__row"><dt class="label">Author</dt><dd>Syed Sabhi Ur Rahman</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 Article -->
+      <div class="nt-body">
+        <div class="wrap nt-body__grid">
+          <nav class="nt-toc hide-m" aria-labelledby="nt-toc-title">
+            <p class="label" id="nt-toc-title">On this page</p>
+            <ol class="nt-toc__list">
+              <li><a href="#which-headers">Which headers matter?</a></li>
+              <li><a href="#your-plan">What can you set on your plan?</a></li>
+              <li><a href="#cloudflare-worker">Adding headers with a Cloudflare Worker</a></li>
+              <li><a href="#check-headers">How to check your headers</a></li>
+            </ol>
+          </nav>
+
+          <div class="nt-content">
+            <section class="nt-sec" aria-labelledby="which-headers">
+              <h2 id="which-headers" data-reveal>Which headers matter?</h2>
+              <p data-reveal>Start with five: Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options (or frame-ancestors in CSP), Referrer-Policy and Content-Security-Policy. They tell the browser to use HTTPS, stop MIME sniffing, block clickjacking, limit referrer leaks and control which scripts may run.</p>
+            </section>
+
+            <section class="nt-sec" aria-labelledby="your-plan">
+              <h2 id="your-plan" data-reveal>What can you set on your plan?</h2>
+              <table class="nt-table" data-reveal>
+                <caption class="sr-only">Custom security headers in Webflow, by site plan</caption>
+                <thead>
+                  <tr><th scope="col" class="label">Plan</th><th scope="col" class="label">Custom headers in Webflow</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Enterprise</th><td>Yes, in the site settings</td></tr>
+                  <tr><th scope="row">Other site plans</th><td>No — add them at a proxy or CDN in front</td></tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section class="nt-sec" aria-labelledby="cloudflare-worker">
+              <h2 id="cloudflare-worker" data-reveal>Adding headers with a Cloudflare Worker</h2>
+              <p data-reveal>Put the domain behind Cloudflare, then add a small Worker that copies the Webflow response and sets the headers before it reaches the browser.</p>
+              <figure class="nt-fig" data-reveal>
+                <pre class="nt-code"><code><span class="nt-code__g">export default {</span>
+<span class="nt-code__g">  async fetch(request) {</span>
+<span class="nt-code__g">    const res = await fetch(request);</span>
+<span class="nt-code__g">    const out = new Response(res.body, res);</span>
+<span class="nt-code__i">    out.headers.set('Strict-Transport-Security', 'max-age=31536000');</span>
+<span class="nt-code__i">    out.headers.set('X-Content-Type-Options', 'nosniff');</span>
+<span class="nt-code__i">    out.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');</span>
+<span class="nt-code__i">    out.headers.set('Content-Security-Policy-Report-Only', "default-src 'self' …");</span>
+<span class="nt-code__g">    return out;</span>
+<span class="nt-code__g">  }</span>
+<span class="nt-code__g">};</span></code></pre>
+                <figcaption class="nt-fig__cap">Example only. Build the CSP from the scripts your site really loads, and keep it report-only until nothing breaks.</figcaption>
+              </figure>
+            </section>
+
+            <section class="nt-sec" aria-labelledby="check-headers">
+              <h2 id="check-headers" data-reveal>How to check your headers</h2>
+              <p data-reveal>Run <code>curl -I</code> on your domain and read the response. Check again after every new script or embed.</p>
+            </section>
+
+            <aside class="nt-author" aria-label="About the author" data-reveal>
+              <img class="nt-author__img" src="/img/avatar/bust.webp" width="72" height="72" alt="" loading="lazy" decoding="async">
+              <div class="nt-author__t">
+                <p class="nt-author__name">Syed Sabhi Ur Rahman</p>
+                <p class="nt-author__role">Senior Webflow developer · learning web application security</p>
+                <p class="nt-author__links hide-m"><!-- @include ulink href="https://www.linkedin.com/in/syedsabhiurrehmanshah/" label="LinkedIn" icon="ne" target="_blank" --><!-- @include ulink href="https://github.com/SabhiUrRahman" label="GitHub" icon="ne" target="_blank" --></p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 Related notes (no pages yet, so no links) -->
+    <section class="nt-related" aria-labelledby="nt-related-title">
+      <div class="wrap">
+        <h2 class="label nt-related__title" id="nt-related-title" data-reveal>Related notes</h2>
+        <ul class="nt-related__list">
+          <li data-reveal><p class="nt-related__t">Can I use a Content Security Policy without Webflow Enterprise?</p><p class="label">Draft</p></li>
+          <li data-reveal><p class="nt-related__t">How do I stop spam on Webflow forms?</p><p class="label">Draft</p></li>
+          <li data-reveal><p class="nt-related__t">Can I set security headers on a Framer site?</p><p class="label">Draft</p></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include footer -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+  <button class="fab" type="button" data-chat-open aria-expanded="false" aria-controls="chat">
+    <img class="fab__bust" src="/img/avatar/bust.webp" width="48" height="48" alt="">
+    <span class="fab__text"><span class="fab__title">Ask Sabhi</span><span class="fab__on"><span class="dot" aria-hidden="true"></span>Online</span></span>
+  </button>
+
+  <section class="chat" id="chat" data-chat hidden aria-label="Ask Sabhi">
+    <header class="chat__head">
+      <img class="chat__bust" src="/img/avatar/bust.webp" width="44" height="44" alt="">
+      <div>
+        <p class="chat__title">Ask Sabhi</p>
+        <p class="label chat__on"><span class="dot" aria-hidden="true"></span>Answers from this site</p>
+      </div>
+      <button class="chat__close" type="button" data-chat-close aria-label="Close chat">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
+      </button>
+    </header>
+    <div class="chat__log" data-chat-log role="log" aria-live="polite"></div>
+    <div class="chat__chips" data-chat-chips></div>
+    <form class="chat__form" data-chat-form autocomplete="off">
+      <label class="sr-only" for="chat-q">Your question</label>
+      <input id="chat-q" name="q" maxlength="300" placeholder="Type a question…">
+      <button class="chat__send" type="submit" aria-label="Send">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5v-11M3.5 7 8 2.5 12.5 7"/></svg>
+      </button>
+    </form>
+  </section>

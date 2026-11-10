@@ -1,0 +1,170 @@
+/* Contact page (prefix ct-)
+   Desktop follows the 1440 px design through --u (1 design px, see main.css).
+   Phones (< 900 px) follow the 390 px design in plain px, in the block at the end. */
+
+/* ---------- 01 hero ---------- */
+.ct-glow--a { left: calc(-240 * var(--u)); top: calc(500 * var(--u)); width: calc(900 * var(--u)); height: calc(620 * var(--u)); }
+.ct-glow--b { --c: var(--ice); --o: 0.75; left: calc(960 * var(--u)); top: calc(140 * var(--u)); width: calc(420 * var(--u)); height: calc(620 * var(--u)); }
+.ct-hero__in { display: flex; flex-direction: column; align-items: flex-start; min-height: calc(960 * var(--u)); padding-top: calc(104 * var(--u)); padding-bottom: calc(101 * var(--u)); }
+.ct-hero__hair { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(80 * var(--u)); }
+.ct-hero__top { align-self: stretch; display: flex; justify-content: space-between; gap: 24px; }
+.ct-hero__title { margin: calc(31 * var(--u)) 0 calc(80 * var(--u)); font-weight: 500; font-size: calc(136 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.ct-hero__title em { font-size: 1.147em; letter-spacing: -0.01em; }
+
+/* the avatar stands on the right, mirrored (the walking layer takes over when JS runs) */
+.ct-hero__fig { position: absolute; left: calc(1058 * var(--u)); top: calc(260 * var(--u)); width: calc(265 * var(--u)); height: calc(640 * var(--u)); }
+.ct-slot { inset: 0; }
+.ct-slot img { transform: scaleX(-1); }
+
+/* the big address: a solid 2 px underline that wipes out and back in on hover */
+.ct-mail {
+  margin-top: auto; display: inline-flex; align-items: center; gap: calc(16 * var(--u)); padding-bottom: calc(6 * var(--u));
+  font-weight: 500; font-size: calc(40 * var(--u)); line-height: 1.28; letter-spacing: -0.015em;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 2px no-repeat;
+}
+.ct-mail svg { flex: none; width: calc(28 * var(--u)); min-width: 16px; height: auto; transition: transform 0.45s var(--ease); }
+.ct-mail:hover { animation: ct-wipe 0.8s var(--ease); }
+.ct-mail:hover svg { transform: translate(3px, -3px); }
+@keyframes ct-wipe {
+  0% { background-size: 100% 2px; background-position: 100% 100%; }
+  50% { background-size: 0 2px; background-position: 100% 100%; }
+  50.1% { background-size: 0 2px; background-position: 0 100%; }
+  100% { background-size: 100% 2px; background-position: 0 100%; }
+}
+
+.ct-hero__lead { margin-top: calc(31 * var(--u)); max-width: max(320px, calc(520 * var(--u))); font-size: max(15px, calc(18 * var(--u))); line-height: 1.55; color: var(--ink-700); }
+
+/* time strip: My time / Your time / Status */
+.ct-time { margin-top: calc(74 * var(--u)); display: flex; flex-wrap: wrap; gap: 12px calc(40 * var(--u)); }
+.ct-time > div { display: grid; gap: 4px; align-content: start; }
+.ct-time dt { font-size: 10px; }
+.ct-time dd { display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; font-weight: 500; font-size: max(15px, calc(17 * var(--u))); line-height: 1.3; }
+.ct-time__gap { font-weight: 400; font-size: 0.82em; color: var(--ink-500); }
+.ct-time__gap:empty { display: none; }
+
+/* ---------- 02 channels ---------- */
+.ct-channels { padding: calc(80 * var(--u)) 0 calc(70 * var(--u)); }
+.ct-channels__head { font-weight: 400; }
+.ct-ch { margin-top: calc(35 * var(--u)); }
+.ct-ch a { display: grid; grid-template-columns: calc(236 * var(--u)) 1fr calc(300 * var(--u)) calc(76 * var(--u)); align-items: center; min-height: calc(140 * var(--u)); padding: 12px 0; }
+.ct-ch__value { font-size: calc(44 * var(--u)); line-height: 1.27; letter-spacing: -0.02em; overflow-wrap: anywhere; transition: color 0.3s; }
+.ct-ch__value em { font-size: 1.182em; line-height: 1.1; }
+.ct-ch__note { font-size: max(14px, calc(15 * var(--u))); line-height: 1.3; color: var(--ink-700); text-align: right; }
+.ct-ch__go { justify-self: end; width: calc(22 * var(--u)); min-width: 16px; height: auto; transition: transform 0.45s var(--ease); }
+
+/* ---------- 03 what to send ---------- */
+.ct-send { padding: calc(110 * var(--u)) 0 calc(110 * var(--u)); }
+.ct-send__title { margin-top: calc(21 * var(--u)); max-width: calc(1000 * var(--u)); font-weight: 500; font-size: calc(64 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.ct-send__title em { font-size: 1.156em; letter-spacing: -0.01em; }
+
+/* ---------- 04 faq (items use the shared .qa pattern) ---------- */
+.ct-faq { padding: calc(100 * var(--u)) 0 calc(160 * var(--u)); }
+.ct-faq__grid { display: grid; grid-template-columns: calc(576 * var(--u)) 1fr; }
+.ct-faq__title { margin-top: calc(25 * var(--u)); font-size: calc(110 * var(--u)); line-height: 0.92; letter-spacing: -0.02em; }
+.ct-faq__list { padding-top: calc(50 * var(--u)); }
+
+/* channel rows: on a real pointer the arrow nudges and the other rows step back */
+@media (hover: hover) and (pointer: fine) {
+  .ct-ch a:hover .ct-ch__go { transform: translate(4px, -4px); }
+  .ct-ch:hover li:not(:hover) .ct-ch__value { color: rgb(11 11 12 / 0.35); }
+}
+
+/* ---------- phones (390 px design) ---------- */
+@media (max-width: 899px) {
+  .ct-glow--a, .ct-glow--b, .ct-hero__hair { display: none; }
+  .ct-hero__in { min-height: 0; padding-top: 92px; padding-bottom: 40px; gap: 18px; }
+  .ct-hero__title { margin: 0; font-size: 50px; line-height: 1; letter-spacing: -0.03em; }
+  .ct-hero__title em { font-size: 57px; }
+  .ct-hero__fig { position: relative; left: auto; top: auto; align-self: stretch; width: auto; height: 364px; }
+  .ct-glow--fig { --c: var(--ice); --o: 0.75; left: calc(50% - 130px); top: 20px; width: 260px; height: 272px; }
+  .ct-slot { inset: auto; left: calc(50% - 70px); top: 6px; width: 141px; height: 340px; }
+  .ct-mail { margin-top: 0; gap: 8px; padding-bottom: 4px; font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; }
+  .ct-mail svg { width: 15px; min-width: 0; }
+  .ct-hero__lead { margin-top: 0; max-width: none; font-size: 16px; }
+  .ct-time { align-self: stretch; display: block; margin-top: 0; }
+  .ct-time > div { grid-template-columns: 80px 1fr; column-gap: 14px; align-items: center; padding: 32px 0; border-top: 1px solid var(--line-2); }
+  .ct-time > div:last-child { border-bottom: 1px solid var(--line-2); }
+  .ct-time dd { font-weight: 400; font-size: 16px; line-height: 1.2; letter-spacing: -0.01em; }
+  .ct-time .dot { display: none; }
+
+  .ct-channels { padding: 56px 0; }
+  .ct-ch { margin-top: 16px; }
+  .ct-ch a { grid-template-columns: 70px 1fr auto; column-gap: 14px; align-items: start; min-height: 0; padding: 30px 0; }
+  .ct-ch__name { grid-column: 1; grid-row: 1 / 3; padding-top: 3px; }
+  .ct-ch__value { grid-column: 2; grid-row: 1; font-size: 20px; line-height: 1.2; letter-spacing: -0.01em; }
+  .ct-ch__value em { font-size: 1.2em; line-height: 1.2; letter-spacing: -0.01em; }
+  .ct-ch__note { grid-column: 2; grid-row: 2; margin-top: 6px; font-size: 13px; line-height: 1.45; text-align: left; }
+  .ct-ch__go { grid-column: 3; grid-row: 1; width: 14px; min-width: 0; margin-top: 4px; }
+
+  .ct-send { padding: 56px 0; }
+  .ct-send__title { margin-top: 16px; max-width: none; font-size: 32px; line-height: 1; letter-spacing: -0.03em; }
+
+  .ct-faq { padding: 56px 0; }
+  .ct-faq__grid { display: block; }
+  .ct-faq__title { margin-top: 16px; font-size: 52px; }
+  .ct-faq__list { padding-top: 16px; }
+  .ct-faq .qa summary { padding: 30px 0; }
+}
+
+/* ---------- project brief form ---------- */
+.ct-form__grid { display: grid; grid-template-columns: calc(500 * var(--u)) 1fr; column-gap: calc(80 * var(--u)); align-items: start; }
+.ct-form__intro { position: sticky; top: calc(120 * var(--u)); }
+.ct-form__lead { margin-top: calc(28 * var(--u)); max-width: 400px; font-size: max(15px, calc(17 * var(--u))); line-height: 1.55; color: var(--ink-700); }
+.ct-form__privacy { margin-top: calc(24 * var(--u)); display: inline-flex; align-items: center; gap: 8px; color: var(--ink-700); }
+.ct-form__privacy svg { width: 14px; height: 14px; }
+.ct-form { display: grid; gap: calc(34 * var(--u)); padding-top: calc(8 * var(--u)); }
+.ct-form__row { display: grid; grid-template-columns: 1fr 1fr; column-gap: calc(40 * var(--u)); row-gap: calc(34 * var(--u)); }
+.ct-field { display: grid; gap: 10px; align-content: start; }
+.ct-field label, .ct-chips legend { font-family: var(--mono); font-size: max(10px, calc(11 * var(--u))); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-700); }
+.ct-field__opt { color: var(--ink-500); text-transform: none; letter-spacing: 0; font-family: var(--sans); }
+.ct-field input, .ct-field select, .ct-field textarea {
+  width: 100%; padding: 10px 0 12px; border: 0; border-bottom: 1px solid rgb(11 11 12 / 0.25); border-radius: 0; background: transparent;
+  font: inherit; font-size: max(17px, calc(22 * var(--u))); line-height: 1.3; letter-spacing: -0.01em; color: var(--ink);
+  transition: border-color 0.25s, background-color 0.25s; appearance: none; -webkit-appearance: none;
+}
+.ct-field textarea { resize: vertical; min-height: 120px; line-height: 1.45; }
+.ct-field select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%230B0B0C' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; background-size: 16px; padding-right: 28px; }
+.ct-field input::placeholder, .ct-field textarea::placeholder { color: var(--ink-500); opacity: 0.7; }
+.ct-field input:focus, .ct-field select:focus, .ct-field textarea:focus { outline: none; border-bottom-color: var(--ink); }
+.ct-field input:focus-visible, .ct-field select:focus-visible, .ct-field textarea:focus-visible { box-shadow: 0 2px 0 0 var(--ink); }
+.ct-field [aria-invalid="true"] { border-bottom-color: #B4442F; }
+.ct-field__err { min-height: 0; font-size: 13px; color: #B4442F; }
+.ct-field__err:empty { display: none; }
+.ct-chips { margin: 0; padding: 0; border: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.ct-chips legend { margin-bottom: 14px; padding: 0; }
+.ct-chips label { position: relative; cursor: pointer; }
+.ct-chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.ct-chips span { display: inline-flex; align-items: center; height: 42px; padding: 0 18px; border-radius: 999px; border: 1px solid rgb(11 11 12 / 0.2); font-size: 15px; color: var(--ink-700); transition: background-color 0.25s, color 0.25s, border-color 0.25s; }
+.ct-chips label:hover span { border-color: var(--ink); color: var(--ink); }
+.ct-chips input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+.ct-chips input:focus-visible + span { outline: 2px solid var(--emerald); outline-offset: 3px; }
+.ct-form__send { display: flex; align-items: center; gap: calc(28 * var(--u)); flex-wrap: wrap; margin-top: calc(6 * var(--u)); }
+.ct-form__mail { cursor: pointer; }
+.ct-form__status { min-height: 1.4em; color: var(--ink-700); }
+.ct-form__noscript { font-size: 15px; color: var(--ink-700); }
+.ct-form__noscript a { text-decoration: underline; }
+
+@media (max-width: 899px) {
+  .ct-send { padding: 56px 0; }
+  .ct-form__grid { display: block; }
+  .ct-form__intro { position: static; }
+  .ct-form__lead { margin-top: 16px; font-size: 15px; }
+  .ct-form__privacy { margin-top: 14px; }
+  .ct-form { margin-top: 32px; gap: 28px; }
+  .ct-form__row { grid-template-columns: 1fr; row-gap: 28px; }
+  .ct-field input, .ct-field select, .ct-field textarea { font-size: 18px; }
+  .ct-chips span { height: 40px; padding: 0 16px; font-size: 14px; }
+  .ct-form__send { gap: 20px; }
+}
+
+/* inbox sending: honeypot, busy state, thank-you note */
+.ct-hp { display: none !important; }
+.ct-form[aria-busy="true"] .btn { opacity: 0.6; pointer-events: none; }
+.ct-form .btn:disabled { cursor: progress; }
+.ct-form__status a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: 14px; }
+.ct-form__done { padding: calc(40 * var(--u)) 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); outline: none; }
+.ct-form__done-title { font-weight: 500; font-size: max(30px, calc(48 * var(--u))); line-height: 1.02; letter-spacing: -0.03em; }
+.ct-form__done-title em { font-size: 1.12em; letter-spacing: -0.01em; }
+.ct-form__done-text { margin-top: 18px; max-width: 460px; font-size: max(15px, calc(17 * var(--u))); line-height: 1.55; color: var(--ink-700); }
+.ct-form__done-text a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.ct-form [hidden] { display: none !important; }

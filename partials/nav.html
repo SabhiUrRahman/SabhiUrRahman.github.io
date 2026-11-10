@@ -1,0 +1,41 @@
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav" data-nav>
+    <div class="nav__inner">
+      <a class="nav__name" href="/" aria-label="Sabhi Ur Rahman, home">Sabhi Ur Rahman</a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="/about/" data-nav-link="about"><span class="nav__num">(01)</span> About</a>
+        <a href="/services/" data-nav-link="services"><span class="nav__num">(02)</span> Services</a>
+        <a href="/work/" data-nav-link="work"><span class="nav__num">(03)</span> Work</a>
+        <a href="/security/" data-nav-link="security"><span class="nav__num">(04)</span> Security notes</a>
+        <a href="/contact/" data-nav-link="contact"><span class="nav__num">(05)</span> Contact</a>
+      </nav>
+      <a class="status" href="/contact/"><span class="status__dot" aria-hidden="true"></span><span class="status__long">Open for projects</span><span class="status__short" aria-hidden="true">Open</span></a>
+      <button class="nav__menu" type="button" data-menu-open aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" data-menu hidden>
+    <div class="menu__bar">
+      <a class="nav__name" href="/">Sabhi Ur Rahman</a>
+      <button class="menu__close" type="button" data-menu-close aria-label="Close menu">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" /></svg>
+      </button>
+    </div>
+    <nav class="menu__links" aria-label="Menu">
+      <a href="/" data-nav-link="home"><span class="menu__num">00</span><span class="menu__label">Home</span></a>
+      <a href="/about/" data-nav-link="about"><span class="menu__num">01</span><span class="menu__label">About</span></a>
+      <a href="/services/" data-nav-link="services"><span class="menu__num">02</span><span class="menu__label">Services</span></a>
+      <a href="/work/" data-nav-link="work"><span class="menu__num">03</span><span class="menu__label">Work</span></a>
+      <a href="/security/" data-nav-link="security"><span class="menu__num">04</span><span class="menu__label">Security notes</span></a>
+      <a href="/contact/" data-nav-link="contact"><span class="menu__num">05</span><span class="menu__label">Contact</span></a>
+    </nav>
+    <div class="menu__bottom">
+      <p class="label menu__status"><span class="dot" aria-hidden="true"></span>Open for projects · Lahore <time data-lahore-time></time></p>
+      <div class="actions">
+        <!-- @include btn href="https://wa.me/923392925724" label="WhatsApp me" ext="1" -->
+        <!-- @include ulink href="mailto:sabhiurrahman.work@gmail.com" label="Email" icon="ne" -->
+      </div>
+    </div>
+  </div>

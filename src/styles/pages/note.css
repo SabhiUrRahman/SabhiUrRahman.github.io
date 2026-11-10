@@ -1,0 +1,107 @@
+/* Security note (prefix nt-): question as the H1, short answer first, then the article.
+   Desktop follows the 1440 px design through --u; phones follow the 390 px design (block at the end). */
+
+/* ---------- 01 note hero ---------- */
+.nt-hero__wrap { padding-top: calc(104 * var(--u)); padding-bottom: calc(130 * var(--u)); }
+.nt-hero__hair { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(80 * var(--u)); }
+.nt-hero__top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.nt-crumb { color: var(--ink-700); text-decoration: underline; text-decoration-color: rgb(11 11 12 / 0.3); text-underline-offset: 3px; transition: color 0.25s, text-decoration-color 0.25s; }
+.nt-crumb:hover { color: var(--ink); text-decoration-color: currentColor; }
+.nt-draft { display: inline-block; margin-left: 2px; padding: 2px 8px 1px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); }
+.nt-hero__title { margin-top: calc(31 * var(--u)); max-width: calc(1200 * var(--u)); font-weight: 500; font-size: calc(88 * var(--u)); line-height: 0.94; letter-spacing: -0.045em; }
+.nt-hero__title em { font-size: 1.148em; letter-spacing: -0.01em; }
+.nt-hero__grid { margin-top: calc(94 * var(--u)); display: grid; grid-template-columns: calc(900 * var(--u)) 1fr; column-gap: calc(76 * var(--u)); align-items: start; }
+.nt-answer { display: grid; gap: calc(12 * var(--u)); padding: calc(32 * var(--u)); background: var(--white); border: 1px solid var(--line); border-radius: calc(24 * var(--u)); }
+.nt-answer__label { color: var(--emerald); }
+.nt-answer__text { font-size: max(16px, calc(19 * var(--u))); line-height: 1.55; }
+.nt-meta { padding-top: calc(10 * var(--u)); display: grid; gap: calc(18 * var(--u)); }
+.nt-meta__row { display: grid; gap: calc(7 * var(--u)); }
+.nt-meta dd { font-size: max(15px, calc(16 * var(--u))); line-height: 1.25; }
+
+/* ---------- 02 article ---------- */
+.nt-body { padding: calc(30 * var(--u)) 0 calc(80 * var(--u)); }
+.nt-body__grid { display: grid; grid-template-columns: calc(356 * var(--u)) minmax(0, calc(800 * var(--u))); align-items: start; }
+.nt-toc { position: sticky; top: max(96px, calc(110 * var(--u))); max-width: max(200px, calc(260 * var(--u))); padding-top: calc(10 * var(--u)); }
+.nt-toc__list { margin-top: calc(21 * var(--u)); display: grid; gap: calc(25 * var(--u)); }
+.nt-toc__list a { font-size: max(14px, calc(15 * var(--u))); line-height: 1.27; color: var(--ink-700); transition: color 0.25s; }
+.nt-toc__list a:hover { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.nt-content { min-width: 0; }
+.nt-sec + .nt-sec { margin-top: calc(44 * var(--u)); }
+.nt-sec h2 { font-weight: 500; font-size: max(26px, calc(40 * var(--u))); line-height: 1.28; letter-spacing: -0.015em; }
+.nt-sec h2 + * { margin-top: calc(19 * var(--u)); }
+.nt-sec p { max-width: calc(760 * var(--u)); font-size: max(16px, calc(19 * var(--u))); line-height: 1.65; color: var(--ink-700); }
+.nt-sec p code { padding: 0.1em 0.4em; border-radius: 6px; background: var(--beige); font-family: var(--mono); font-size: 0.85em; color: var(--ink); }
+
+/* plan table */
+.nt-table { width: 100%; max-width: calc(780 * var(--u)); border-collapse: collapse; }
+.nt-table th, .nt-table td { padding: calc(16 * var(--u)) calc(16 * var(--u)) calc(20 * var(--u)) 0; text-align: left; vertical-align: top; font-weight: 400; }
+.nt-table thead th { padding-bottom: calc(26 * var(--u)); border-top: 1px solid rgb(11 11 12 / 0.4); }
+.nt-table thead th:first-child { width: calc(300 * var(--u)); }
+.nt-table tbody th, .nt-table td { border-top: 1px solid var(--line-2); font-size: max(15px, calc(17 * var(--u))); line-height: 1.3; }
+.nt-table tbody tr:last-child > * { border-bottom: 1px solid var(--line-2); }
+
+/* code sample */
+.nt-fig { margin-top: calc(36 * var(--u)); max-width: calc(780 * var(--u)); }
+.nt-code { margin: 0; padding: calc(28 * var(--u)); border-radius: calc(18 * var(--u)); background: var(--noir); font-family: var(--mono); font-size: max(12px, calc(13 * var(--u))); line-height: 1.77; white-space: pre-wrap; overflow-wrap: anywhere; tab-size: 2; }
+.nt-code code { font: inherit; }
+.nt-code ::selection { background: var(--ivory); color: var(--ink); }
+.nt-code__g { color: rgb(34 200 115 / 0.9); }
+.nt-code__i { color: rgb(245 242 236 / 0.9); }
+.nt-fig__cap { margin-top: calc(24 * var(--u)); max-width: calc(760 * var(--u)); font-size: 14px; line-height: 1.5; color: var(--ink-700); }
+
+/* author */
+.nt-author { margin-top: calc(36 * var(--u)); max-width: calc(780 * var(--u)); display: flex; align-items: center; gap: calc(20 * var(--u)); padding: calc(28 * var(--u)); border-radius: calc(24 * var(--u)); background: var(--white); }
+.nt-author__img { flex: none; width: max(56px, calc(72 * var(--u))); height: max(56px, calc(72 * var(--u))); border-radius: 50%; background: var(--beige); object-fit: cover; }
+.nt-author__t { display: grid; gap: 4px; }
+.nt-author__name { font-weight: 500; font-size: max(16px, calc(18 * var(--u))); line-height: 1.28; }
+.nt-author__role { font-size: 14px; line-height: 1.3; color: var(--ink-700); }
+.nt-author__links { display: flex; flex-wrap: wrap; gap: 16px; }
+
+/* ---------- 03 related notes ---------- */
+.nt-related { padding: calc(60 * var(--u)) 0 calc(120 * var(--u)); }
+.nt-related__title { font-weight: 400; }
+.nt-related__list { margin-top: calc(35 * var(--u)); display: grid; grid-template-columns: repeat(3, calc(400 * var(--u))); column-gap: calc(48 * var(--u)); }
+.nt-related__list li { padding-top: calc(26 * var(--u)); border-top: 1px solid rgb(11 11 12 / 0.2); }
+.nt-related__t { max-width: calc(380 * var(--u)); font-weight: 500; font-size: max(18px, calc(24 * var(--u))); line-height: 1.2; letter-spacing: -0.01em; }
+.nt-related__list .label { margin-top: calc(12 * var(--u)); }
+
+/* ---------- phones (390 px design) ---------- */
+@media (max-width: 899px) {
+  .nt-hero__wrap { padding-top: 92px; padding-bottom: 32px; }
+  .nt-hero__title { margin-top: 18px; max-width: none; font-size: 36px; line-height: 1; letter-spacing: -0.03em; }
+  .nt-hero__title em { font-size: 1.139em; }
+  .nt-hero__grid { margin-top: 18px; display: block; }
+  .nt-answer { gap: 10px; padding: 22px; border-radius: 20px; }
+  .nt-answer__text { font-size: 16px; }
+  .nt-meta { margin-top: 18px; padding-top: 0; gap: 0; border-bottom: 1px solid var(--line-2); }
+  .nt-meta__row { grid-template-columns: 90px 1fr; column-gap: 14px; align-items: center; padding: 32px 0; border-top: 1px solid var(--line-2); }
+  .nt-meta dd { font-size: 15px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  .nt-body { padding: 78px 0 56px; }
+  .nt-body__grid { display: block; }
+  .nt-sec + .nt-sec { margin-top: 36px; }
+  .nt-sec h2 { font-size: 26px; line-height: 1.27; letter-spacing: -0.01em; }
+  .nt-sec h2 + * { margin-top: 14px; }
+  .nt-sec p { max-width: none; font-size: 16px; line-height: 1.55; }
+
+  .nt-table { max-width: none; }
+  .nt-table thead tr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .nt-table tbody th { width: 104px; padding: 28px 14px 28px 0; vertical-align: middle; font-family: var(--mono); font-size: 10px; line-height: 1.35; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-500); }
+  .nt-table td { padding: 28px 0; vertical-align: middle; font-size: 15px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  .nt-fig { margin-top: 14px; }
+  .nt-code { padding: 18px; border-radius: 14px; font-size: 11px; line-height: 1.4; }
+  .nt-fig__cap { margin-top: 14px; font-size: 13px; line-height: 1.55; }
+
+  .nt-author { margin-top: 36px; gap: 14px; padding: 18px; border-radius: 20px; }
+  .nt-author__img { width: 56px; height: 56px; }
+  .nt-author__t { gap: 2px; }
+  .nt-author__name { font-size: 15px; }
+  .nt-author__role { font-size: 12px; }
+
+  .nt-related { padding: 56px 0; }
+  .nt-related__list { margin-top: 16px; display: block; border-bottom: 1px solid var(--line-2); }
+  .nt-related__list li { padding: 30px 0; border-top-color: var(--line-2); }
+  .nt-related__t { max-width: none; font-weight: 400; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+  .nt-related__list .label { margin-top: 6px; }
+}
