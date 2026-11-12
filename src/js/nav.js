@@ -19,8 +19,18 @@ export function initNav({ lenis }) {
   const openBtn = document.querySelector("[data-menu-open]");
   const closeBtn = document.querySelector("[data-menu-close]");
   if (!menu || !openBtn) return;
+  menu.setAttribute("role", "dialog");
+  menu.setAttribute("aria-modal", "true");
+  if (!menu.hasAttribute("aria-label")) menu.setAttribute("aria-label", "Menu");
+  // everything except the menu and its ancestors: siblings at every level up to <body>
+  const behind = () => {
+    const out = [];
+    for (let n = menu; n && n !== document.body; n = n.parentElement) for (const sib of n.parentElement.children) if (sib !== n) out.push(sib);
+    return out;
+  };
   const open = () => {
     menu.hidden = false;
+    behind().forEach((el) => (el.inert = true));
     openBtn.setAttribute("aria-expanded", "true");
     lenis?.stop();
     document.body.style.overflow = "hidden";
@@ -28,6 +38,7 @@ export function initNav({ lenis }) {
   };
   const close = () => {
     menu.hidden = true;
+    behind().forEach((el) => (el.inert = false));
     openBtn.setAttribute("aria-expanded", "false");
     lenis?.start();
     document.body.style.overflow = "";

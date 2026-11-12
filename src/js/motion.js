@@ -56,10 +56,11 @@ export function initMotion({ reduce }) {
     });
   });
 
-  // the statement lights up word by word as you scroll
+  // the statement lights up word by word as you scroll. Unlit words still meet 3:1 contrast for large text:
+  // 0.45 for ink words, 0.78 for the already-dimmed tail (its colour is ink at 0.6)
   gsap.utils.toArray("[data-words]").forEach((el) => {
     const words = splitWords(el);
-    gsap.fromTo(words, { opacity: 0.14 }, {
+    gsap.fromTo(words, { opacity: (i, w) => (w.closest(".statement__dim") ? 0.78 : 0.45) }, {
       opacity: 1, ease: "none", stagger: 0.1,
       scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 45%", scrub: 0.6 },
     });

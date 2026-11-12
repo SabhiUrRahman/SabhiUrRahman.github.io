@@ -37,6 +37,10 @@ document.addEventListener("click", (e) => {
   if (lenis) lenis.scrollTo(id === "#top" ? 0 : el, { offset: -(navH + 16), duration: 1.4 });
   else if (id === "#top") window.scrollTo(0, 0);
   else el.scrollIntoView();
+  // keyboard and screen-reader users land where the link points, not just the scroll position
+  const target = id === "#top" ? document.querySelector("main") || document.body : el;
+  if (!target.hasAttribute("tabindex") && !target.matches("a, button, input, select, textarea")) target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
 });
 
 // Lahore clock in the menu and footer

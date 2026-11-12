@@ -31,7 +31,8 @@ node tools/assets.mjs   # rebuild avatar WebPs, chat bust and grain from ../avat
 - `/work/case-template/`: the layout for the first real case study (noindex, placeholders only)
 - `/security/webflow-security-headers/`: draft note (noindex until its facts are verified)
 - Page styles live in `src/styles/pages/<page>.css`; page scripts in `src/js/pages/` (work filters, contact clock + brief form)
-- The contact form has no server: it builds the message and opens it in WhatsApp or the visitor's email app
+- The contact form posts to Web3Forms (the access key in `contact/index.html` is public by design; CSP `connect-src` allows only `api.web3forms.com`), with a honeypot field and WhatsApp/email as fallbacks
+- Share images: `node tools/og.mjs` renders `public/og/<page>.jpg` (1200x630) from each page's headline and avatar pose
 - Figma specs used for the build: `../design/figma-spec-v2/` (with `BRIEF.md`)
 
 ## Images

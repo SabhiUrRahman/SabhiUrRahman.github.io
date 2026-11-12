@@ -48,6 +48,8 @@ const partialsPlugin = () => ({
           return part.replace(/\{\{([\w-]+)(?:\|([^}]*))?\}\}/g, (m, k, fb) => vals[k] ?? fb ?? "").trimEnd();
         });
       }
+      // a partial left without target: drop the empty attribute, and rel too unless the link opens a new tab
+      out = out.replace(/ target="" rel="noopener"/g, "").replace(/ target=""/g, "");
       const page = out.match(/<body[^>]*data-page="([^"]+)"/)?.[1];
       if (page) out = out.replaceAll(`data-nav-link="${page}"`, `data-nav-link="${page}" aria-current="page"`);
       return out;
