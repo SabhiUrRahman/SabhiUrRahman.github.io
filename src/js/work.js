@@ -1,4 +1,4 @@
-// Selected work: a small browser preview and a "View" bubble follow the cursor over the rows.
+// Selected work: a "View" bubble follows the cursor over the rows; rows with a screenshot also show it in a small browser preview.
 export function initWork({ reduce }) {
   const list = document.querySelector("[data-work]");
   const card = document.querySelector("[data-work-preview]");
@@ -6,7 +6,12 @@ export function initWork({ reduce }) {
   if (!list || !card || !bubble || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
   const label = card.querySelector("[data-preview-label]");
-  let x = 0, y = 0, cx = 0, cy = 0, bx = 0, by = 0, on = false, raf = 0;
+  const img = new Image();
+  img.className = "preview__img";
+  img.alt = "";
+  img.decoding = "async";
+  card.querySelector("[data-preview-body]").append(img);
+  let x = 0, y = 0, cx = 0, cy = 0, bx = 0, by = 0, on = false, shot = false, raf = 0;
 
   const loop = () => {
     const k = reduce ? 1 : 0.14;
@@ -17,14 +22,16 @@ export function initWork({ reduce }) {
     bubble.style.transform = `translate3d(${bx - 36}px, ${by - 36}px, 0) scale(${on ? 1 : 0.3})`;
     raf = on || Math.abs(x - cx) > 0.5 ? requestAnimationFrame(loop) : 0;
   };
+  const fade = (el, v) => {
+    el.style.transition = "opacity .3s ease, visibility .3s";
+    el.style.opacity = v ? 1 : 0;
+    el.style.visibility = v ? "visible" : "hidden";
+  };
   const show = (v) => {
     on = v;
     list.classList.toggle("is-hovering", v);
-    for (const el of [card, bubble]) {
-      el.style.transition = "opacity .3s ease, visibility .3s";
-      el.style.opacity = v ? 1 : 0;
-      el.style.visibility = v ? "visible" : "hidden";
-    }
+    fade(bubble, v);
+    fade(card, v && shot);
     if (!raf) raf = requestAnimationFrame(loop);
   };
 
@@ -33,10 +40,14 @@ export function initWork({ reduce }) {
     if (!on) { cx = bx = x; cy = by = y; show(true); }
   });
   list.addEventListener("pointerleave", () => show(false));
-  list.querySelectorAll("[data-preview]").forEach((row) => {
+  list.querySelectorAll(".row").forEach((row) => {
     row.addEventListener("pointerenter", () => {
-      card.dataset.kind = row.dataset.preview;
-      label.textContent = row.querySelector(".row__tags")?.textContent || "";
+      shot = !!row.dataset.preview;
+      if (shot) {
+        img.src = row.dataset.preview;
+        label.textContent = row.dataset.previewLabel || "";
+      }
+      fade(card, on && shot);
     });
   });
 }

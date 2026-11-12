@@ -18,7 +18,7 @@ const CARDS = [
   ["home", "[ 00 ] Portfolio", "Webflow & Framer sites, built fast and", "locked down.", "wave"],
   ["about", "[ 01 ] About", "From intern to senior", "in three years.", "fold"],
   ["services", "[ 02 ] Services", "Websites built to edit, and", "locked down.", "laptop"],
-  ["work", "[ 03 ] Work", "Four kinds of", "builds.", "wave"],
+  ["work", "[ 03 ] Work", "Work you can open,", "code you can read.", "wave"],
   ["security", "[ 04 ] Security notes", "Notes on securing", "no-code websites.", "fold"],
   ["contact", "[ 05 ] Contact", "Got something", "worth building?", "wave"],
 ];

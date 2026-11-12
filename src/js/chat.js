@@ -85,4 +85,5 @@ export function initChat({ lenis }) {
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) close(); });
   form.addEventListener("submit", (e) => { e.preventDefault(); ask(input.value); input.value = ""; });
   log.setAttribute("data-lenis-prevent", "");
+  return { open };
 }

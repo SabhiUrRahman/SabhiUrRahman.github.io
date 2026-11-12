@@ -12,37 +12,89 @@
   <link rel="stylesheet" href="/src/styles/pages/about.css">
   <link rel="preload" as="image" href="/img/avatar/fold-1800.webp" imagesrcset="/img/avatar/fold-900.webp 269w, /img/avatar/fold-1800.webp 539w" imagesizes="(max-width: 899px) 119px, 252px">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfilePage",
-        "@id": "https://sabhiurrahman.github.io/about/#webpage",
-        "url": "https://sabhiurrahman.github.io/about/",
-        "name": "About · Syed Sabhi Ur Rahman",
-        "description": "Syed Sabhi Ur Rahman: Senior Webflow Developer at Devziv in Lahore, 40+ websites shipped since 2023, now studying for a BS in Cyber Security.",
-        "inLanguage": "en",
-        "isPartOf": { "@id": "https://sabhiurrahman.github.io/#website" },
-        "mainEntity": { "@id": "https://sabhiurrahman.github.io/#person" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://sabhiurrahman.github.io/about/#webpage",
+      "url": "https://sabhiurrahman.github.io/about/",
+      "name": "About · Syed Sabhi Ur Rahman",
+      "description": "Syed Sabhi Ur Rahman: Senior Webflow Developer at Devziv in Lahore, 40+ websites shipped since 2023, now studying for a BS in Cyber Security.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://sabhiurrahman.github.io/#website"
       },
-      {
-        "@type": "Person",
-        "@id": "https://sabhiurrahman.github.io/#person",
-        "name": "Syed Sabhi Ur Rahman",
-        "alternateName": "Sabhi Ur Rahman",
-        "jobTitle": "Senior Webflow Developer",
-        "description": "Web developer in Lahore working in Webflow, WordPress and Framer, learning web application security.",
-        "url": "https://sabhiurrahman.github.io/",
-        "email": "mailto:sabhiurrahman.work@gmail.com",
-        "image": "https://sabhiurrahman.github.io/img/avatar/bust.webp",
-        "worksFor": { "@type": "Organization", "name": "Devziv" },
-        "affiliation": { "@type": "CollegeOrUniversity", "name": "The Superior University", "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" } },
-        "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" },
-        "knowsAbout": ["Webflow", "Webflow CMS", "Client-First", "GSAP", "Framer", "WordPress", "Website security", "Security headers", "Content Security Policy", "Core Web Vitals", "Technical SEO"],
-        "sameAs": ["https://www.linkedin.com/in/syedsabhiurrehmanshah/", "https://github.com/SabhiUrRahman"]
+      "mainEntity": {
+        "@id": "https://sabhiurrahman.github.io/#person"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sabhiurrahman.github.io/#person",
+      "name": "Syed Sabhi Ur Rahman",
+      "alternateName": "Sabhi Ur Rahman",
+      "jobTitle": "Senior Webflow Developer",
+      "description": "Web developer in Lahore working in Webflow, WordPress and Framer, learning web application security.",
+      "url": "https://sabhiurrahman.github.io/",
+      "email": "mailto:sabhiurrahman.work@gmail.com",
+      "image": "https://sabhiurrahman.github.io/img/avatar/bust.webp",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Devziv"
+      },
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "The Superior University",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lahore",
+          "addressCountry": "PK"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressCountry": "PK"
+      },
+      "knowsAbout": [
+        "Webflow",
+        "Webflow CMS",
+        "Client-First",
+        "GSAP",
+        "Framer",
+        "WordPress",
+        "Website security",
+        "Security headers",
+        "Content Security Policy",
+        "Core Web Vitals",
+        "Technical SEO"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/syedsabhiurrehmanshah/",
+        "https://github.com/SabhiUrRahman"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sabhiurrahman.github.io/about/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sabhiurrahman.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://sabhiurrahman.github.io/about/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body data-page="about">
@@ -55,7 +107,7 @@
         <span class="glow ab-glow--h1" aria-hidden="true"></span>
         <span class="glow ab-glow--h2" aria-hidden="true"></span>
         <span class="hair ab-hero__hair" aria-hidden="true"></span>
-        <p class="label ab-hero__kicker" data-load>(01) About — Syed Sabhi Ur Rahman</p>
+        <nav class="crumbs" aria-label="Breadcrumb" data-load><p class="label ab-hero__kicker">(01) <a class="crumb" href="/">Home</a> / <span aria-current="page">About</span> — Syed Sabhi Ur Rahman</p></nav>
         <p class="label ab-hero__coords hide-m" data-load>31.52°N 74.35°E · Lahore → worldwide</p>
 
         <h1 class="ab-hero__title" data-load><span class="sr-only">About Syed Sabhi Ur Rahman: </span>Developer by day. <em>Security student by night.</em></h1>
@@ -129,7 +181,7 @@
           </ol>
           <p class="here hide-m" aria-hidden="true"><span class="dot"></span>You are here</p>
           <div class="slot slot--about" data-slot>
-            <img src="/img/avatar/wave-900.webp" srcset="/img/avatar/wave-900.webp 372w, /img/avatar/wave-1800.webp 743w" sizes="200px" width="743" height="1800" alt="" loading="lazy" decoding="async">
+            <img src="/img/avatar/wave-900.webp" srcset="/img/avatar/wave-900.webp 372w, /img/avatar/wave-1800.webp 743w" sizes="200px" width="743" height="1800" alt="Cartoon portrait of Sabhi waving hello" loading="lazy" decoding="async">
           </div>
         </div>
         <p class="hide-m" data-reveal><!-- @include ulink href="/work/" label="See the work" icon="right" --></p>
@@ -167,8 +219,8 @@
           <li class="ab-log__row" data-reveal><p class="label ab-log__status ab-log__status--now"><span class="dot" aria-hidden="true"></span>Running</p><h3 class="ab-log__name">Cisco: Introduction to Cybersecurity</h3><p class="ab-log__desc">Core security terms, threats and defences</p></li>
           <li class="ab-log__row" data-reveal><p class="label ab-log__status">Next</p><h3 class="ab-log__name">TryHackMe: Pre Security path</h3><p class="ab-log__desc">Linux, networking, how the web works</p></li>
           <li class="ab-log__row" data-reveal><p class="label ab-log__status">Next</p><h3 class="ab-log__name">PortSwigger Web Security Academy</h3><p class="ab-log__desc">Access control, authentication, XSS, SQL injection</p></li>
-          <li class="ab-log__row" data-reveal><p class="label ab-log__status">Planned</p><h3 class="ab-log__name">TryHackMe: Jr Penetration Tester</h3><p class="ab-log__desc">Hands-on web app testing labs</p></li>
-          <li class="ab-log__row" data-reveal><p class="label ab-log__status">Planned</p><h3 class="ab-log__name">A first practical certificate</h3><p class="ab-log__desc">eJPT or TryHackMe PT1, after the labs</p></li>
+          <li class="ab-log__row" data-reveal><p class="label ab-log__status">Later</p><h3 class="ab-log__name">TryHackMe: Jr Penetration Tester</h3><p class="ab-log__desc">Hands-on web app testing labs</p></li>
+          <li class="ab-log__row" data-reveal><p class="label ab-log__status">Later</p><h3 class="ab-log__name">A first practical certificate</h3><p class="ab-log__desc">eJPT or TryHackMe PT1, after the labs</p></li>
         </ol>
         <p data-reveal><!-- @include ulink href="/security/" label="Read the security notes" icon="right" --></p>
       </div>

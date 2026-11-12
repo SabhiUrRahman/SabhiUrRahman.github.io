@@ -43,7 +43,7 @@ html:not(.js) .wk-filters { display: none; } /* the chips need JavaScript; witho
 
 /* ---------- 03 the four cases ---------- */
 .wk-list { display: grid; row-gap: calc(160 * var(--u)); margin-top: calc(110 * var(--u)); }
-.wk-case { display: grid; grid-template-columns: calc(840 * var(--u)) 1fr; column-gap: calc(56 * var(--u)); align-items: start; scroll-margin-top: 100px; }
+.wk-case { display: grid; grid-template-columns: calc(840 * var(--u)) 1fr; column-gap: calc(56 * var(--u)); align-items: start; }
 .wk-case[hidden] { display: none; }
 .wk-case .wk-shot { grid-column: 1; grid-row: 1; }
 .wk-case__body { grid-column: 2; grid-row: 1; max-width: calc(400 * var(--u)); padding-top: calc(30 * var(--u)); }
@@ -158,4 +158,26 @@ html:not(.js) .wk-filters { display: none; } /* the chips need JavaScript; witho
   .wk-next { padding: 56px 0; }
   .wk-next__link { padding-top: 8px; }
   .wk-next__title { margin-top: 8px; font-size: 56px; line-height: 1; letter-spacing: -0.03em; }
+}
+
+/* ---------- live projects: a real screenshot inside the browser frame ---------- */
+.wk-section-label { margin-bottom: calc(10 * var(--u)); }
+.wk-shot__img { position: absolute; left: 0; top: max(24px, calc(33 * var(--u))); width: 100%; height: calc(100% - max(24px, calc(33 * var(--u)))); object-fit: cover; object-position: top center; }
+.wk-case__link--2 { margin-top: 14px; }
+
+/* ---------- client work: the four kinds of builds, shown without pictures until a client agrees ---------- */
+.wk-client { padding: calc(160 * var(--u)) 0 calc(40 * var(--u)); }
+.wk-client__lead { margin-top: calc(30 * var(--u)); max-width: calc(780 * var(--u)); font-size: max(17px, calc(24 * var(--u))); line-height: 1.4; letter-spacing: -0.01em; }
+.wk-kinds { margin-top: calc(70 * var(--u)); display: grid; grid-template-columns: repeat(4, 1fr); column-gap: calc(36 * var(--u)); border-top: 1px solid var(--line-2); }
+.wk-kinds li { display: grid; gap: 12px; align-content: start; padding-top: calc(26 * var(--u)); }
+.wk-kinds h3 { font-weight: 500; font-size: max(20px, calc(26 * var(--u))); line-height: 1.1; letter-spacing: -0.02em; }
+.wk-kinds h3 em { font-size: 1.12em; letter-spacing: -0.01em; }
+.wk-kinds p { font-size: max(14px, calc(15 * var(--u))); line-height: 1.5; color: var(--ink-700); }
+.wk-kinds p.label { color: var(--ink-500); }
+@media (max-width: 899px) {
+  .wk-shot__img { top: 33px; height: calc(100% - 33px); }
+  .wk-client { padding: 72px 0 8px; }
+  .wk-client__lead { font-size: 18px; }
+  .wk-kinds { margin-top: 28px; grid-template-columns: 1fr; }
+  .wk-kinds li { padding: 18px 0; border-bottom: 1px solid var(--line-2); }
 }

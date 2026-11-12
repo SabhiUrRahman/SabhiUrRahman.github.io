@@ -2,42 +2,138 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Webflow &amp; Framer security notes: headers, CSP, forms</title>
-  <meta name="description" content="Notes on securing Webflow and Framer websites: security headers, CSP, forms and third-party scripts, from a Webflow developer learning web application security.">
+  <title>Webflow &amp; Framer security checklist: headers, CSP, forms</title>
+  <meta name="description" content="A security checklist for Webflow and Framer sites: headers, CSP, forms, custom code, third-party scripts, access, gated content and backups.">
   <link rel="canonical" href="https://sabhiurrahman.github.io/security/">
   <meta property="og:title" content="Security notes · Syed Sabhi Ur Rahman">
-  <meta property="og:description" content="Notes on securing no-code websites: headers, CSP, forms and scripts.">
+  <meta property="og:description" content="An eight-point security checklist for Webflow and Framer sites.">
   <meta property="og:url" content="https://sabhiurrahman.github.io/security/">
   <!-- @include head og="security" -->
   <link rel="stylesheet" href="/src/styles/pages/security.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://sabhiurrahman.github.io/security/#page",
-    "url": "https://sabhiurrahman.github.io/security/",
-    "name": "Security notes",
-    "description": "Notes on securing Webflow and Framer websites: security headers, CSP, forms and third-party scripts, from a Webflow developer learning web application security.",
-    "inLanguage": "en",
-    "isPartOf": { "@id": "https://sabhiurrahman.github.io/#website" },
-    "author": { "@id": "https://sabhiurrahman.github.io/#person" },
-    "about": [
-      { "@type": "Thing", "name": "Website security" },
-      { "@type": "Thing", "name": "Security headers" },
-      { "@type": "Thing", "name": "Webflow" },
-      { "@type": "Thing", "name": "Framer" }
-    ],
-    "hasPart": [
-      {
-        "@type": "BlogPosting",
-        "@id": "https://sabhiurrahman.github.io/security/webflow-security-headers/#post",
-        "headline": "How do I add security headers to a Webflow site?",
-        "url": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
-        "creativeWorkStatus": "Draft",
-        "author": { "@id": "https://sabhiurrahman.github.io/#person" }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sabhiurrahman.github.io/security/#page",
+      "url": "https://sabhiurrahman.github.io/security/",
+      "name": "Security notes",
+      "description": "A security checklist for Webflow and Framer sites: headers, CSP, forms, custom code, third-party scripts, access, gated content and backups.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://sabhiurrahman.github.io/#website"
+      },
+      "author": {
+        "@id": "https://sabhiurrahman.github.io/#person"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Website security"
+        },
+        {
+          "@type": "Thing",
+          "name": "Security headers"
+        },
+        {
+          "@type": "Thing",
+          "name": "Webflow"
+        },
+        {
+          "@type": "Thing",
+          "name": "Framer"
+        }
+      ],
+      "mainEntity": {
+        "@type": "ItemList",
+        "@id": "https://sabhiurrahman.github.io/security/#checklist",
+        "name": "The no-code website security checklist",
+        "numberOfItems": 8,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Security headers",
+            "url": "https://sabhiurrahman.github.io/security/#check-headers"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Content Security Policy",
+            "url": "https://sabhiurrahman.github.io/security/#check-csp"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Forms",
+            "url": "https://sabhiurrahman.github.io/security/#check-forms"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Custom code",
+            "url": "https://sabhiurrahman.github.io/security/#check-custom-code"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Third-party scripts",
+            "url": "https://sabhiurrahman.github.io/security/#check-scripts"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Access",
+            "url": "https://sabhiurrahman.github.io/security/#check-access"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Gated content",
+            "url": "https://sabhiurrahman.github.io/security/#check-gated-content"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Backups",
+            "url": "https://sabhiurrahman.github.io/security/#check-backups"
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sabhiurrahman.github.io/#person",
+      "name": "Syed Sabhi Ur Rahman",
+      "alternateName": "Sabhi Ur Rahman",
+      "jobTitle": "Senior Webflow Developer",
+      "url": "https://sabhiurrahman.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/syedsabhiurrehmanshah/",
+        "https://github.com/SabhiUrRahman"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sabhiurrahman.github.io/security/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sabhiurrahman.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Security notes",
+          "item": "https://sabhiurrahman.github.io/security/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body data-page="security">
@@ -51,18 +147,18 @@
       <div class="wrap sn-hero__wrap">
         <span class="hair sn-hero__hair hide-m" aria-hidden="true"></span>
         <div class="sn-hero__top">
-          <p class="label" data-load>(04) Security notes — practical, honest</p>
+          <nav class="crumbs" aria-label="Breadcrumb" data-load><p class="label">(04) <a class="crumb" href="/">Home</a> / <span aria-current="page">Security notes</span> — practical, honest</p></nav>
           <p class="label hide-m" data-load>31.52°N 74.35°E · Lahore → worldwide</p>
         </div>
         <h1 class="sn-hero__title" data-load>Notes on securing <em>no-code websites.</em></h1>
         <div class="slot sn-slot" data-slot>
           <span class="glow sn-glow--slot show-m" aria-hidden="true"></span>
-          <img src="/img/avatar/fold-900.webp" srcset="/img/avatar/fold-900.webp 269w, /img/avatar/fold-1800.webp 539w" sizes="(max-width: 899px) 107px, 203px" width="539" height="1800" alt="" fetchpriority="high" decoding="async">
+          <img src="/img/avatar/fold-900.webp" srcset="/img/avatar/fold-900.webp 269w, /img/avatar/fold-1800.webp 539w" sizes="(max-width: 899px) 107px, 203px" width="539" height="1800" alt="Cartoon portrait of Sabhi standing with his arms folded" fetchpriority="high" decoding="async">
         </div>
-        <p class="sn-hero__lead" data-load>Notes on Webflow and Framer security — headers, CSP, forms and scripts — plus what I am learning in web application security. Every note stays a draft until I have tested it.</p>
+        <p class="sn-hero__lead" data-load>The checks I run on a Webflow or Framer site before launch: headers, CSP, forms, scripts and access. Each one says what to look for and what to fix first.</p>
         <ul class="hero__notes sn-notes hide-m" aria-label="House rules">
           <li class="note" style="--len: 44" data-load><span class="label">fig. 01</span><p>Passive checks only</p></li>
-          <li class="note" style="--len: 44" data-load><span class="label">fig. 02</span><p>Last tested dates on every note</p></li>
+          <li class="note" style="--len: 44" data-load><span class="label">fig. 02</span><p>What to fix first, in order</p></li>
           <li class="note" style="--len: 54" data-load><span class="label">fig. 03</span><p>No invented numbers</p></li>
         </ul>
       </div>
@@ -76,111 +172,107 @@
         <span class="sn-panel__grain" aria-hidden="true"></span>
         <div class="sn-panel__body">
           <div class="sn-panel__copy">
-            <p class="label sn-signal" data-reveal>Pillar guide · Draft</p>
+            <p class="label sn-signal" data-reveal>Checklist · 8 checks</p>
             <h2 class="sn-panel__title" id="sn-pillar-title" data-split>The no-code website security <em>checklist.</em></h2>
             <p class="sn-panel__text" data-reveal>Every check I run on a Webflow or Framer site before launch, in order, with what to fix first.</p>
           </div>
-          <ol class="sn-check" data-reveal aria-label="Checklist topics">
-            <li><span class="sn-check__n">01</span><span class="sn-check__t">Headers</span></li>
-            <li><span class="sn-check__n">02</span><span class="sn-check__t">CSP</span></li>
-            <li><span class="sn-check__n">03</span><span class="sn-check__t">Forms</span></li>
-            <li><span class="sn-check__n">04</span><span class="sn-check__t">Custom code</span></li>
-            <li><span class="sn-check__n">05</span><span class="sn-check__t">Scripts</span></li>
-            <li><span class="sn-check__n">06</span><span class="sn-check__t">Access</span></li>
-            <li class="hide-m"><span class="sn-check__n">07</span><span class="sn-check__t">Gated content</span></li>
-            <li class="hide-m"><span class="sn-check__n">08</span><span class="sn-check__t">Backups</span></li>
+          <ol class="sn-check" data-reveal aria-label="The eight checks">
+            <li><a href="#check-headers"><span class="sn-check__n">01</span><span class="sn-check__t">Headers</span></a></li>
+            <li><a href="#check-csp"><span class="sn-check__n">02</span><span class="sn-check__t">CSP</span></a></li>
+            <li><a href="#check-forms"><span class="sn-check__n">03</span><span class="sn-check__t">Forms</span></a></li>
+            <li><a href="#check-custom-code"><span class="sn-check__n">04</span><span class="sn-check__t">Custom code</span></a></li>
+            <li><a href="#check-scripts"><span class="sn-check__n">05</span><span class="sn-check__t">Scripts</span></a></li>
+            <li><a href="#check-access"><span class="sn-check__n">06</span><span class="sn-check__t">Access</span></a></li>
+            <li><a href="#check-gated-content"><span class="sn-check__n">07</span><span class="sn-check__t">Gated content</span></a></li>
+            <li><a href="#check-backups"><span class="sn-check__n">08</span><span class="sn-check__t">Backups</span></a></li>
           </ol>
-          <p class="sn-panel__link" data-reveal><!-- @include ulink href="/security/webflow-security-headers/" label="Start with headers" icon="right" class="ulink--ivory" --></p>
+          <p class="sn-panel__link" data-reveal><!-- @include ulink href="#check-headers" label="Start with headers" icon="right" class="ulink--ivory" --></p>
         </div>
       </div>
     </section>
 
-    <!-- 03 All notes (the topic filter works without JavaScript: radio buttons + :has) -->
-    <section class="sn-all" id="notes" aria-labelledby="sn-all-title">
+    <!-- 03 The checklist -->
+    <section class="sn-guide" id="checklist" aria-labelledby="sn-guide-title">
       <div class="wrap">
-        <div class="sn-all__head">
-          <h2 class="label sn-all__title" id="sn-all-title" data-reveal>(01) All notes</h2>
-          <fieldset class="sn-filter" data-reveal>
-            <legend class="sr-only">Show notes about</legend>
-            <input type="radio" name="sn-cat" id="sn-cat-all" value="all" checked><label for="sn-cat-all">All</label>
-            <input type="radio" name="sn-cat" id="sn-cat-webflow" value="webflow"><label for="sn-cat-webflow">Webflow</label>
-            <input type="radio" name="sn-cat" id="sn-cat-framer" value="framer"><label for="sn-cat-framer">Framer</label>
-            <input type="radio" name="sn-cat" id="sn-cat-wordpress" value="wordpress"><label for="sn-cat-wordpress">WordPress</label>
-            <input type="radio" name="sn-cat" id="sn-cat-research" value="research"><label for="sn-cat-research">Research</label>
-            <input type="radio" name="sn-cat" id="sn-cat-labs" value="labs"><label for="sn-cat-labs">Labs</label>
-          </fieldset>
-        </div>
-
-        <ol class="sn-list" data-reveal>
-          <li data-cat="webflow">
-            <a class="sn-row sn-row--link" href="/security/webflow-security-headers/">
-              <span class="label sn-row__tag">Webflow</span>
-              <h3 class="sn-row__title sn-row__title--serif">How do I add security headers to a Webflow site?</h3>
-              <span class="label sn-row__meta">Draft · 1 min</span>
-              <span class="sn-row__go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span>
-            </a>
+        <h2 class="label sn-guide__title" id="sn-guide-title" data-reveal>(01) The eight checks</h2>
+        <ol class="sn-steps">
+          <li class="sn-step" id="check-headers" data-reveal>
+            <p class="label sn-step__n">01 · Headers</p>
+            <h3 class="sn-step__title">Security headers</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>Open the site, then DevTools → Network → the first request → Response Headers. Look for <code>Strict-Transport-Security</code>, <code>Content-Security-Policy</code>, <code>X-Content-Type-Options</code>, <code>Referrer-Policy</code>, <code>Permissions-Policy</code>, and <code>X-Frame-Options</code> or a <code>frame-ancestors</code> rule.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>HTTPS everywhere with HSTS, then <code>X-Content-Type-Options: nosniff</code> and a referrer policy. If your plan cannot send custom headers, a proxy in front of the site, such as Cloudflare, can add them.</dd></div>
+            </dl>
           </li>
-          <li data-cat="webflow">
-            <div class="sn-row">
-              <span class="label sn-row__tag">Webflow</span>
-              <h3 class="sn-row__title">Can I use a Content Security Policy without Webflow Enterprise?</h3>
-              <span class="label sn-row__meta">Draft</span>
-            </div>
+          <li class="sn-step" id="check-csp" data-reveal>
+            <p class="label sn-step__n">02 · CSP</p>
+            <h3 class="sn-step__title">Content Security Policy</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>A <code>Content-Security-Policy</code> header or meta tag, and the list of outside domains your pages load scripts, styles, fonts, images and frames from.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>Send the policy as <code>Content-Security-Policy-Report-Only</code> first so nothing breaks, read what it reports, then enforce it. Keep the allowed domains few and avoid <code>'unsafe-eval'</code>. A meta-tag policy cannot set <code>frame-ancestors</code>, so framing protection needs a header.</dd></div>
+            </dl>
           </li>
-          <li data-cat="webflow">
-            <div class="sn-row">
-              <span class="label sn-row__tag">Webflow</span>
-              <h3 class="sn-row__title">How do I stop spam on Webflow forms?</h3>
-              <span class="label sn-row__meta">Draft</span>
-            </div>
+          <li class="sn-step" id="check-forms" data-reveal>
+            <p class="label sn-step__n">03 · Forms</p>
+            <h3 class="sn-step__title">Forms</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>Where each form sends its data (the builder, Zapier, a CRM), who receives the emails, and whether spam gets through. Check that no field asks for more than you need.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>Turn on the spam protection your builder offers, send submissions only to inboxes you control, and never ask for passwords or card numbers in a plain form.</dd></div>
+            </dl>
           </li>
-          <li data-cat="webflow">
-            <div class="sn-row">
-              <span class="label sn-row__tag">Webflow</span>
-              <h3 class="sn-row__title">Are Webflow custom code embeds safe?</h3>
-              <span class="label sn-row__meta">Draft</span>
-            </div>
+          <li class="sn-step" id="check-custom-code" data-reveal>
+            <p class="label sn-step__n">04 · Custom code</p>
+            <h3 class="sn-step__title">Custom code</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>Every embed, and every page-level or site-wide custom code block. That code runs with full access to the page and to anything a visitor types into it.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>Remove code nobody can explain. Never put API keys or secret tokens in front-end code: anyone can read them in the page source.</dd></div>
+            </dl>
           </li>
-          <li data-cat="framer">
-            <div class="sn-row">
-              <span class="label sn-row__tag">Framer</span>
-              <h3 class="sn-row__title">Can I set security headers on a Framer site?</h3>
-              <span class="label sn-row__meta">Draft</span>
-            </div>
+          <li class="sn-step" id="check-scripts" data-reveal>
+            <p class="label sn-step__n">05 · Scripts</p>
+            <h3 class="sn-step__title">Third-party scripts</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>Every outside script: analytics, chat widgets, heatmaps, tag managers. A tag manager can add new scripts later without anyone publishing the site.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>Remove what nobody uses, limit who can publish in the tag manager, and add Subresource Integrity (the <code>integrity</code> attribute) to files that never change.</dd></div>
+            </dl>
           </li>
-          <li data-cat="framer">
-            <div class="sn-row">
-              <span class="label sn-row__tag">Framer</span>
-              <h3 class="sn-row__title">How does Framer form spam protection work?</h3>
-              <span class="label sn-row__meta">Draft</span>
-            </div>
+          <li class="sn-step" id="check-access" data-reveal>
+            <p class="label sn-step__n">06 · Access</p>
+            <h3 class="sn-step__title">Access</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>Who can sign in to the builder workspace, the domain registrar, DNS, hosting and the form inbox. Former staff and agencies often still can.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>One account per person and no shared logins, two-factor authentication everywhere (the domain registrar first), and remove anyone who has left.</dd></div>
+            </dl>
           </li>
-          <li data-cat="research">
-            <div class="sn-row">
-              <span class="label sn-row__tag sn-row__tag--research">Research</span>
-              <h3 class="sn-row__title">What do no-code sites get wrong about security headers?</h3>
-              <span class="label sn-row__meta">Planned</span>
-            </div>
+          <li class="sn-step" id="check-gated-content" data-reveal>
+            <p class="label sn-step__n">07 · Gated content</p>
+            <h3 class="sn-step__title">Gated content</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>Password-protected or members-only pages, and the files linked from them. Open those file links in a private window: an uploaded file is often reachable by anyone who has the link.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>Keep truly private files out of public asset storage, and check that gated pages do not show up in search results or the sitemap.</dd></div>
+            </dl>
           </li>
-          <li class="sn-empty" data-cat="wordpress"><p>No WordPress notes yet.</p></li>
-          <li class="sn-empty" data-cat="labs"><p>No lab write-ups yet.</p></li>
+          <li class="sn-step" id="check-backups" data-reveal>
+            <p class="label sn-step__n">08 · Backups</p>
+            <h3 class="sn-step__title">Backups</h3>
+            <dl class="sn-step__body">
+              <div><dt class="label">Look for</dt><dd>When the site was last backed up, and whether that copy includes CMS content, form submissions and assets. A backup that lives only inside the builder account is gone if the account is lost.</dd></div>
+              <div><dt class="label">Fix first</dt><dd>Export CMS collections and form submissions on a schedule, keep a copy outside the builder account, and test a restore once.</dd></div>
+            </dl>
+          </li>
         </ol>
       </div>
     </section>
 
-    <!-- 04 Research and tool -->
-    <section class="sn-more" aria-label="Research and tools">
-      <div class="wrap sn-more__grid">
-        <div class="sn-card sn-card--research" data-reveal>
-          <p class="label sn-card__tag">Research · planned</p>
-          <h2 class="sn-card__title">What no-code sites get wrong about security headers</h2>
-          <p class="sn-card__text"><span class="hide-m">A planned, passive look at the public headers of no-code sites, to be published as open data. </span>Numbers appear here only after the study is done.</p>
-          <p class="sn-card__q" aria-hidden="true">?</p>
-        </div>
+    <!-- 04 Passive check of this page -->
+    <section class="sn-more" aria-labelledby="sn-tool-title">
+      <div class="wrap">
         <div class="sn-card sn-card--tool" data-reveal>
-          <p class="label sn-signal">Free tool · planned</p>
-          <h2 class="sn-card__title">Security header checker</h2>
-          <p class="sn-card__text">Planned: paste a URL, see which headers are missing and how to add them on Webflow or Framer. Until it is ready, the box below runs four passive checks on this page, in your browser.</p>
+          <div class="sn-card__copy">
+            <p class="label sn-signal">Try it · this page</p>
+            <h2 class="sn-card__title" id="sn-tool-title">Four passive checks, run in your browser</h2>
+            <p class="sn-card__text">The box reads what this page can see about itself: its Content Security Policy, HTTPS, outside scripts and referrer policy. Nothing is sent anywhere.</p>
+          </div>
           <div class="term sn-term" data-scan>
             <div class="term__bar"><i></i><i></i><i></i><span class="label">guest@sabhi — scan</span></div>
             <p class="term__cmd">$ scan <span data-scan-host>this page</span></p>

@@ -11,38 +11,83 @@
   <!-- @include head robots="noindex, follow" og="security" -->
   <link rel="stylesheet" href="/src/styles/pages/note.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": "https://sabhiurrahman.github.io/security/webflow-security-headers/#post",
-    "headline": "How do I add security headers to a Webflow site?",
-    "description": "Which security headers matter, what you can set on each Webflow plan, and how to add them with a Cloudflare Worker, with a report-only Content Security Policy first.",
-    "url": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
-    "mainEntityOfPage": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
-    "inLanguage": "en",
-    "creativeWorkStatus": "Draft",
-    "wordCount": 236,
-    "timeRequired": "PT1M",
-    "author": {
-      "@type": "Person",
-      "@id": "https://sabhiurrahman.github.io/#person",
-      "name": "Syed Sabhi Ur Rahman",
-      "url": "https://sabhiurrahman.github.io/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sabhiurrahman.github.io/security/webflow-security-headers/#post",
+      "headline": "How do I add security headers to a Webflow site?",
+      "description": "Which security headers matter, what you can set on each Webflow plan, and how to add them with a Cloudflare Worker, with a report-only Content Security Policy first.",
+      "url": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
+      "mainEntityOfPage": "https://sabhiurrahman.github.io/security/webflow-security-headers/",
+      "inLanguage": "en",
+      "creativeWorkStatus": "Draft",
+      "wordCount": 236,
+      "timeRequired": "PT1M",
+      "author": {
+        "@type": "Person",
+        "@id": "https://sabhiurrahman.github.io/#person",
+        "name": "Syed Sabhi Ur Rahman",
+        "url": "https://sabhiurrahman.github.io/"
+      },
+      "publisher": {
+        "@id": "https://sabhiurrahman.github.io/#person"
+      },
+      "isPartOf": {
+        "@type": "CollectionPage",
+        "@id": "https://sabhiurrahman.github.io/security/#page",
+        "name": "Security notes",
+        "url": "https://sabhiurrahman.github.io/security/"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Security headers"
+        },
+        {
+          "@type": "Thing",
+          "name": "Webflow"
+        },
+        {
+          "@type": "Thing",
+          "name": "Content Security Policy"
+        }
+      ],
+      "keywords": [
+        "Webflow",
+        "security headers",
+        "Content Security Policy",
+        "Strict-Transport-Security",
+        "Cloudflare Workers"
+      ]
     },
-    "publisher": { "@id": "https://sabhiurrahman.github.io/#person" },
-    "isPartOf": {
-      "@type": "CollectionPage",
-      "@id": "https://sabhiurrahman.github.io/security/#page",
-      "name": "Security notes",
-      "url": "https://sabhiurrahman.github.io/security/"
-    },
-    "about": [
-      { "@type": "Thing", "name": "Security headers" },
-      { "@type": "Thing", "name": "Webflow" },
-      { "@type": "Thing", "name": "Content Security Policy" }
-    ],
-    "keywords": ["Webflow", "security headers", "Content Security Policy", "Strict-Transport-Security", "Cloudflare Workers"]
-  }
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sabhiurrahman.github.io/security/webflow-security-headers/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sabhiurrahman.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Security notes",
+          "item": "https://sabhiurrahman.github.io/security/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How do I add security headers to a Webflow site?",
+          "item": "https://sabhiurrahman.github.io/security/webflow-security-headers/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body data-page="security">
@@ -56,7 +101,7 @@
           <span class="hair nt-hero__hair hide-m" aria-hidden="true"></span>
           <div class="nt-hero__top">
             <nav aria-label="Breadcrumb" data-load>
-              <p class="label">(04) <a class="nt-crumb" href="/security/">Security notes</a> / Webflow · <span class="nt-draft">Draft</span></p>
+              <p class="label">(04) <a class="nt-crumb" href="/">Home</a> / <a class="nt-crumb" href="/security/">Security notes</a> / Webflow · <span class="nt-draft">Draft</span></p>
             </nav>
             <p class="label hide-m" data-load>31.52°N 74.35°E · Lahore → worldwide</p>
           </div>
@@ -133,7 +178,7 @@
             </section>
 
             <aside class="nt-author" aria-label="About the author" data-reveal>
-              <img class="nt-author__img" src="/img/avatar/bust.webp" width="72" height="72" alt="" loading="lazy" decoding="async">
+              <img class="nt-author__img" src="/img/avatar/bust.webp" width="72" height="72" alt="Cartoon portrait of Syed Sabhi Ur Rahman" loading="lazy" decoding="async">
               <div class="nt-author__t">
                 <p class="nt-author__name">Syed Sabhi Ur Rahman</p>
                 <p class="nt-author__role">Senior Webflow developer · learning web application security</p>

@@ -4,10 +4,6 @@ import Lenis from "lenis";
 import { initNav } from "./nav.js";
 import { initMotion } from "./motion.js";
 import { initJourney } from "./journey.js";
-import { initWork } from "./work.js";
-import { initFaq } from "./faq.js";
-import { initScan } from "./scan.js";
-import { initChat } from "./chat.js";
 
 window.__ssrReady = true;
 const root = document.documentElement;
@@ -33,8 +29,8 @@ document.addEventListener("click", (e) => {
   const el = id === "#top" ? document.body : document.querySelector(id);
   if (!el) return;
   e.preventDefault();
-  const navH = document.querySelector("[data-nav]")?.offsetHeight || 80;
-  if (lenis) lenis.scrollTo(id === "#top" ? 0 : el, { offset: -(navH + 16), duration: 1.4 });
+  // room for the fixed header comes from scroll-padding-top in main.css, which Lenis reads as well
+  if (lenis) lenis.scrollTo(id === "#top" ? 0 : el, { duration: 1.4 });
   else if (id === "#top") window.scrollTo(0, 0);
   else el.scrollIntoView();
   // keyboard and screen-reader users land where the link points, not just the scroll position
@@ -52,10 +48,30 @@ if (clocks.length) { tick(); setInterval(tick, 30000); }
 initNav({ lenis });
 initMotion({ reduce });
 initJourney({ reduce });
-initWork({ reduce });
-initFaq({ reduce });
-initScan();
-initChat({ lenis });
+
+// Code that only some pages or moments need loads on its own, so the main file stays small.
+if (document.querySelector("[data-work]")) import("./work.js").then((m) => m.initWork({ reduce }));
+if (document.querySelector("[data-faq]")) import("./faq.js").then((m) => m.initFaq({ reduce }));
+
+// the passive scan loads as its terminal comes near the screen
+const scanBox = document.querySelector("[data-scan]");
+if (scanBox) {
+  new IntersectionObserver((entries, io) => {
+    if (!entries.some((e) => e.isIntersecting)) return;
+    io.disconnect();
+    import("./scan.js").then((m) => m.initScan());
+  }, { rootMargin: "50% 0px" }).observe(scanBox);
+}
+
+// "Ask Sabhi" loads when someone reaches for the button; a click that comes first opens it once it is in
+const fab = document.querySelector("[data-chat-open]");
+if (fab) {
+  let chat = null, ready = false;
+  const load = () => (chat ||= import("./chat.js").then((m) => { ready = true; return m.initChat({ lenis }); }));
+  fab.addEventListener("pointerenter", load, { once: true });
+  fab.addEventListener("focus", load, { once: true });
+  fab.addEventListener("click", () => { if (!ready) load().then((c) => c?.open()); }, { once: true });
+}
 
 // fonts change line breaks: re-measure once they are in
 document.fonts?.ready.then(() => ScrollTrigger.refresh());
