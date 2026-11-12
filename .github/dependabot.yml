@@ -4,6 +4,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # Vite stays on 7 (with Rollup 4.67.5): newer native bundler binaries are blocked by
+      # Windows App Control on the build machine. Minor and patch updates still come through.
+      - dependency-name: vite
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
